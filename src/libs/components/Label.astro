@@ -1,0 +1,31 @@
+---
+import type { HTMLAttributes, HTMLTag } from 'astro/types'
+import { cn } from '@/utils'
+
+type Props = (
+	| {
+			as: 'a'
+			target: HTMLAttributes<'a'>['target']
+			href: string
+	  }
+	| {
+			as?: HTMLTag
+	  }
+) & {
+	class?: string
+	title: string
+}
+const { class: className, as: Tag = 'div', title, ...props }: Props = Astro.props
+---
+
+<Tag
+	class={cn(
+		className,
+		'flex flex-row items-center justify-center gap-x-2',
+		'href' in props && 'hover:opacity-75 transition-all'
+	)}
+	{...props}
+>
+	<slot name='icon' />
+	<span>{title}</span>
+</Tag>

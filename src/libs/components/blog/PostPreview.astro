@@ -1,0 +1,37 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types'
+import type { CollectionEntry } from 'astro:content'
+
+import FormattedDate from '@components/FormattedDate.astro'
+import styles from './styles/PostPreview.module.css'
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
+	post: CollectionEntry<'post'>
+	withDesc?: boolean
+}
+
+const { as: Tag = 'div', post, withDesc = false } = Astro.props
+const postDate = post.data.updatedDate ?? post.data.publishDate
+---
+
+<div class={styles.post_preview}>
+	<FormattedDate class='w-[120px]' date={postDate} />
+
+	<Tag class="w-[calc(100%-120px)]">
+		{post.data.draft && <span class='text-red-500'>(Draft) </span>}
+		<a
+			data-astro-prefetch
+			href={`/blog/${post.slug}/`}
+			class='transition-all hover:text-muted-foreground'
+		>
+			{post.data.title}
+		</a>
+		{
+			withDesc && (
+				<p class='line-clamp-3 block text-sm italic text-muted-foreground'>
+					{post.data.description}
+				</p>
+			)
+		}
+	</Tag>
+</div>

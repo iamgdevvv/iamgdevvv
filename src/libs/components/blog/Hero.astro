@@ -1,0 +1,74 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { Image } from 'astro:assets'
+import FormattedDate from '@components/FormattedDate.astro'
+import styles from './styles/Hero.module.css'
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+	content: CollectionEntry<'post'>
+}
+
+const {
+	content: { data, render }
+} = Astro.props
+
+const { remarkPluginFrontmatter } = await render()
+
+const dateTimeOptions: Intl.DateTimeFormatOptions = {
+	month: 'long'
+}
+---
+
+<div id='blog-hero'>
+	{
+		data.coverImage && (
+			<div class='aspect-h-9 aspect-w-16 mb-6'>
+				<Image
+					alt={data.coverImage.alt}
+					class='rounded-2xl object-cover'
+					fetchpriority='high'
+					loading='eager'
+					src={data.coverImage.src}
+				/>
+			</div>
+		)
+	}
+	{data.draft ? <span class='text-red-500'>(Draft)</span> : null}
+	<span class={styles.metadata}>
+		<FormattedDate date={data.publishDate} dateTimeOptions={dateTimeOptions} /> /{' '}
+		{remarkPluginFrontmatter.minutesRead}
+	</span>
+	<h1 class={styles.title}>
+		{data.title}
+	</h1>
+
+	{
+		!!data.tags?.length && (
+			<div class={styles.tags}>
+				<Icon name='tag' class={styles.icon_tag} />
+				{data.tags.map((tag, i) => (
+					<>
+						<a
+							aria-label={`View more blogs with the tag ${tag}`}
+							class={styles.tag}
+							href={`/tags/${tag}/`}
+						>
+							#{tag}
+						</a>
+						{i < data.tags.length - 1 && ', '}
+					</>
+				))}
+			</div>
+		)
+	}
+
+	{
+		data.updatedDate && (
+			<span class={styles.blogdate}>
+				Last Updated:
+				<FormattedDate class='ms-1' date={data.updatedDate} dateTimeOptions={dateTimeOptions} />
+			</span>
+		)
+	}
+</div>

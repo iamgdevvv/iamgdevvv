@@ -1,0 +1,33 @@
+---
+import { cn } from '@/utils'
+import type { HTMLAttributes, HTMLTag } from 'astro/types'
+
+type Props = (
+	| {
+			as: 'a'
+			target: HTMLAttributes<'a'>['target']
+			href: string
+	  }
+	| {
+			as?: HTMLTag
+	  }
+) & {
+	class?: string
+	title: string
+	style?: 'pill' | 'button'
+}
+const { as: Tag = 'a', class: className, title, style = 'button', ...props }: Props = Astro.props
+---
+
+<Tag
+	class={cn(
+		className,
+		'inline-flex items-center gap-x-1 rounded-lg bg-primary-foreground border border-border px-2 py-1 text-sm transition-all hover:bg-input',
+		!('href' in props) && 'cursor-default',
+		style === 'pill' && 'rounded-xl'
+	)}
+>
+	<slot name='icon-before' />
+	<span>{title}</span>
+	<slot name='icon-after' />
+</Tag>

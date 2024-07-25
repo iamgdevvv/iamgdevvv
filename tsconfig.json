@@ -1,3 +1,37 @@
 {
-  "extends": "astro/tsconfigs/strictest"
+	"extends": "astro/tsconfigs/strictest",
+	"compilerOptions": {
+		"target": "ES2020",
+		"useDefineForClassFields": true,
+		"lib": ["ES2020", "DOM", "DOM.Iterable"],
+		"module": "ESNext",
+		"skipLibCheck": true,
+
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
+
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+
+		"strictNullChecks": true,
+		"verbatimModuleSyntax": true,
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["src/*"],
+			"@components/*": ["src/libs/components/*"],
+			"@layouts/*": ["src/libs/layouts/*"],
+			"@templates/*": ["src/libs/templates/*"],
+		},
+		"plugins": [
+			{
+				"name": "@astrojs/ts-plugin"
+			}
+		]
+	},
+	"exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]
 }
