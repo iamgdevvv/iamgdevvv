@@ -72,98 +72,98 @@ html {
 		@apply container;
 		@apply bg-background;
 	}
-}
 
-[id] {
-	@apply scroll-mt-[calc(var(--header-height)+20px)];
-}
-
-img {
-	@apply h-auto max-h-full w-full;
-	@apply object-cover object-center;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	@apply font-bold leading-tight;
-}
-
-h1,
-h2 {
-	@apply mb-2 leading-tight;
-}
-
-h3,
-h4,
-h5,
-h6 {
-	@apply mb-1 leading-snug;
-}
-
-h1 {
-	@apply text-3xl;
-}
-
-h2 {
-	@apply text-2xl;
-}
-
-h3 {
-	@apply text-xl;
-}
-
-h4 {
-	@apply text-lg;
-}
-
-h5 {
-	@apply text-lg;
-}
-
-h6 {
-	@apply text-base;
-}
-
-br {
-	@apply <lg:hidden;
-}
-
-ul,
-ol,
-table,
-p {
-	& + ul,
-	& + ol,
-	& + table,
-	& + p {
-		@apply mt-[24px];
+	[id] {
+		@apply scroll-mt-[calc(var(--header-height)+20px)];
 	}
-}
 
-b,
-strong {
-	@apply font-bold;
-}
+	img {
+		@apply h-auto max-h-full w-full;
+		@apply object-cover object-center;
+	}
 
-td,
-th {
-	@apply align-baseline;
-}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-bold leading-tight;
+	}
 
-a,
-input,
-select,
-textarea,
-button {
-	@apply transition;
-}
+	h1,
+	h2 {
+		@apply mb-2 leading-tight;
+	}
 
-a {
-	@apply hover:underline;
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply mb-1 leading-snug;
+	}
+
+	h1 {
+		@apply text-3xl;
+	}
+
+	h2 {
+		@apply text-2xl;
+	}
+
+	h3 {
+		@apply text-xl;
+	}
+
+	h4 {
+		@apply text-lg;
+	}
+
+	h5 {
+		@apply text-lg;
+	}
+
+	h6 {
+		@apply text-base;
+	}
+
+	br {
+		@apply <lg:hidden;
+	}
+
+	ul,
+	ol,
+	table,
+	p {
+		& + ul,
+		& + ol,
+		& + table,
+		& + p {
+			@apply mt-[24px];
+		}
+	}
+
+	b,
+	strong {
+		@apply font-bold;
+	}
+
+	td,
+	th {
+		@apply align-baseline;
+	}
+
+	a,
+	input,
+	select,
+	textarea,
+	button {
+		@apply transition;
+	}
+
+	a {
+		@apply hover:underline;
+	}
 }
 
 .gscrollbar-fixer.glightbox-open {
@@ -195,5 +195,5 @@ a {
 	@apply h-full w-full;
 	@apply filter invert;
 	@apply dark:invert-0;
-	@apply opacity-20;
+	@apply opacity-10;
 }
