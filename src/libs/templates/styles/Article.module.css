@@ -21,7 +21,7 @@
 }
 
 .article_content {
-	@apply mt-12 w-full;
+	@apply mt-12 w-full max-w-full;
 	@apply text-base prose-zinc dark:prose-invert prose-headings:font-medium prose-headings:text-foreground prose-headings:before:absolute prose-headings:before:-ms-4 prose-th:before:content-none;
 	@apply text-muted-foreground;
 
