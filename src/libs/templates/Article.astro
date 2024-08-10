@@ -32,7 +32,7 @@ const { headings } = await entry.render()
 		<TOC headings={headings} class={styles.sidebar} />
 		<article id='article' data-pagefind-body class={styles.article}>
 			<Hero content={entry} />
-			<div class={styles.article_content}>
+			<div class:list={[styles.article_content, 'prose']}>
 				<hr />
 				<slot />
 			</div>

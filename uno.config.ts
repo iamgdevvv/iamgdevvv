@@ -1,11 +1,14 @@
-import { defineConfig, presetUno, transformerDirectives } from 'unocss'
+import { defineConfig, presetUno, presetTypography, transformerDirectives, transformerVariantGroup, transformerCompileClass } from 'unocss'
 
 export default defineConfig({
 	transformers: [
 		transformerDirectives(),
+		transformerVariantGroup(),
+		transformerCompileClass()
 	],
 	presets: [
 		presetUno(),
+		presetTypography()
 	  ],
 	theme: {
 		container: {

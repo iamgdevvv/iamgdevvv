@@ -68,3 +68,18 @@ const socialImageURL = new URL(ogImage ? ogImage : '/favicon.png', Astro.url).hr
 <meta content={Astro.generator} name='generator' />
 
 <ViewTransitions />
+
+<style is:global>
+	[class*='art_photo'] {
+		animation: slow_pulse 4s infinite;
+	}
+
+	@keyframes slow_pulse {
+		0%, 100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0;
+		}
+	}
+</style>
