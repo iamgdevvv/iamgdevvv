@@ -37,10 +37,24 @@ const {
 
 		<script is:inline src='/scripts/particles.min.js'></script>
 		<script is:inline>
-			particlesJS('particles')
+			function initParticlesJS() {
+				particlesJS('particles', {
+					particles: {
+						number: {
+							value: 20,
+							density: {
+								enable: true,
+								value_area: 2000
+							}
+						}
+					}
+				})
+			}
+
+			initParticlesJS()
 
 			document.addEventListener('astro:after-swap', () => {
-				particlesJS('particles')
+				initParticlesJS()
 			})
 		</script>
 	</body>
