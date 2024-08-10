@@ -1,0 +1,34 @@
+.page_wrapper {
+	@apply flex w-full flex-col gap-y-10;
+}
+
+.section_profile {
+	@apply flex flex-col items-center;
+
+	.title_profile {
+		@apply mb-4;
+	}
+
+	.metadata_profile {
+		@apply flex flex-wrap justify-center gap-x-7 gap-y-3;
+
+		.icon_metadata_profile {
+			@apply inline-block min-h-6 min-w-6;
+		}
+	}
+}
+
+.photo_profile {
+	@apply relative;
+	@apply mb-4;
+
+	.basic_photo,
+	.art_photo {
+		@apply h-40 w-40;
+		@apply rounded-full bg-orange-200 p-2;
+	}
+
+	.art_photo {
+		@apply absolute left-0 top-0 z-10;
+	}
+}

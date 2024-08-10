@@ -1,0 +1,30 @@
+.card {
+	@apply relative;
+	@apply rounded-2xl border border-border bg-primary-foreground;
+	@apply px-5 py-3;
+	@apply hover:border-foreground/25 hover:shadow-sm;
+}
+
+.card_inner {
+	@apply flex flex-col gap-y-1.5;
+}
+
+.card_content {
+	@apply flex flex-col gap-y-1;
+	@apply mb-2;
+}
+
+.card_title {
+	@apply text-lg;
+	@apply mb-0;
+}
+
+.card_subtitle {
+	@apply inline-block;
+	@apply text-sm;
+}
+
+.card_date {
+	@apply inline-block;
+	@apply text-sm text-muted-foreground;
+}

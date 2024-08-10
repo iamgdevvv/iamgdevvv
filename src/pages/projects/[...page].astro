@@ -1,0 +1,99 @@
+---
+export const prerender = true
+
+import type { GetStaticPaths, Page } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+import { Icon } from 'astro-icon/components'
+
+import { getAllProjects, getUniqueStacks, sortMDByDate } from '@/utils'
+
+import Button from '@components/Button.astro'
+import Pagination from '@components/Paginator.astro'
+import ProjectPreview from '@components/projects/ProjectPreview.astro'
+import PageLayout from '@templates/BaseTemplate.astro'
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const allProjects = await getAllProjects()
+	const allProjectsByDate = sortMDByDate(allProjects)
+	const uniqueStacks = getUniqueStacks(allProjects)
+	return paginate<any, any, any>(allProjectsByDate, { pageSize: 6, props: { uniqueStacks } })
+}) satisfies GetStaticPaths
+
+interface Props {
+	page: Page<CollectionEntry<'project'>>
+	uniqueStacks: string[]
+}
+
+const { page, uniqueStacks } = Astro.props
+
+const meta = {
+	description: 'Projects',
+	title: 'Project'
+}
+
+const paginationProps = {
+	...(page.url.prev && {
+		prevUrl: {
+			text: `← Previous Projects`,
+			url: page.url.prev
+		}
+	}),
+	...(page.url.next && {
+		nextUrl: {
+			text: `Next Projects →`,
+			url: page.url.next
+		}
+	})
+}
+---
+
+<PageLayout meta={meta}>
+	<div class='w-full'>
+		<Button title='Back' href='/' style='button'>
+			<Icon name='back' slot='icon-before' />
+		</Button>
+
+		<h1 class='mb-6 mt-5 text-2xl font-bold'>Project</h1>
+		{page.data.length === 0 && <p>No projects yet.</p>}
+
+		{
+			page.data.length > 0 && (
+				<div class='grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8'>
+					<section aria-label='Project projects list'>
+						<ul class='flex flex-col gap-y-4 text-start'>
+							{page.data.map((p) => (
+								<ProjectPreview entry={p} withDesc />
+							))}
+						</ul>
+						<Pagination {...paginationProps} />
+					</section>
+					{!!uniqueStacks.length && (
+						<aside>
+							<h2 class='mb-4 flex items-center text-lg font-semibold'>
+								<Icon name='tag' class='text-3xl mr-2' />
+								Stacks
+							</h2>
+							<ul class='text-bgColor flex flex-wrap gap-2'>
+								{uniqueStacks.map((stack) => (
+									<li>
+										<Button title={stack} href={`/projects/stacks/${stack}/`} style='pill' />
+									</li>
+								))}
+							</ul>
+							<span class='mt-4 block sm:text-end'>
+								<a
+									aria-label='View all projects stacks'
+									class='text-sm'
+									href='/projects/stacks'
+									data-astro-prefetch
+								>
+									View all →
+								</a>
+							</span>
+						</aside>
+					)}
+				</div>
+			)
+		}
+	</div>
+</PageLayout>

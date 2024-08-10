@@ -1,6 +1,7 @@
 ---
-import { cn } from '@/utils'
 import type { HTMLAttributes, HTMLTag } from 'astro/types'
+
+import styles from './styles/Button.module.css'
 
 type Props = (
 	| {
@@ -12,22 +13,16 @@ type Props = (
 			as?: HTMLTag
 	  }
 ) & {
+	id?: string
 	class?: string
 	title: string
 	style?: 'pill' | 'button'
 }
-const { as: Tag = 'a', class: className, title, style = 'button', ...props }: Props = Astro.props
+const { as: Stack = 'a', class: className, title, style = 'button', ...props }: Props = Astro.props
 ---
 
-<Tag
-	class={cn(
-		className,
-		'inline-flex items-center gap-x-1 rounded-lg bg-primary-foreground border border-border px-2 py-1 text-sm transition-all hover:bg-input',
-		!('href' in props) && 'cursor-default',
-		style === 'pill' && 'rounded-xl'
-	)}
->
+<Stack class:list={[className, styles.btn, style === 'pill' && 'rounded-full']} {...props}>
 	<slot name='icon-before' />
 	<span>{title}</span>
 	<slot name='icon-after' />
-</Tag>
+</Stack>

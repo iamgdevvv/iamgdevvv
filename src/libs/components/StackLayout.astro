@@ -1,0 +1,18 @@
+---
+import type { Stack } from '@/configs/stacks'
+import Button from '@components/Button.astro'
+import styles from './styles/StackLayout.module.css'
+
+interface Props {
+	title: string
+	stacks: Stack[]
+}
+const { title, stacks } = Astro.props
+---
+
+<div class={styles.stack_layout}>
+	<h3 class={styles.title}>{title}</h3>
+	<div class={styles.stacks}>
+		{stacks.map((stack) => <Button as='span' title={stack.name} style='pill' />)}
+	</div>
+</div>

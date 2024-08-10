@@ -1,0 +1,45 @@
+.metadata {
+	@apply inline-block;
+	@apply mb-2;
+	@apply text-xs;
+}
+
+.cover {
+	@apply aspect-h-9 aspect-w-16 mb-6;
+
+	.image {
+		@apply rounded-2xl;
+		@apply object-contain;
+	}
+}
+
+.title {
+	@apply text-3xl;
+	@apply mb-3;
+}
+
+.stacks {
+	@apply flex flex-row items-center gap-x-1;
+	@apply mb-2;
+
+	.stack {
+		@apply inline-block hover:underline hover:underline-offset-4;
+	}
+	
+	.icon_stack {
+		@apply me-1 inline-block h-6 w-6;
+	}
+}
+
+.projectinfo {
+	@apply grid gap-2;
+
+	.info_item {
+		@apply flex items-center;
+	}
+
+	.icon_info {
+		@apply inline-block;
+		@apply mr-2 h-4 w-4;
+	}
+}

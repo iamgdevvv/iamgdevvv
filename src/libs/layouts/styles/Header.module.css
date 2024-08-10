@@ -1,0 +1,56 @@
+.header {
+	@apply flex flex-wrap;
+	@apply w-full py-5;
+	@apply text-sm;
+}
+
+@screen sm {
+	.header {
+		@apply flex-nowrap justify-start;
+	}
+}
+
+.navigation {
+	@apply relative;
+	@apply flex w-full items-center justify-between;
+	@apply mx-auto;
+}
+
+.branding {
+	@apply flex-none;
+	@apply text-xl font-semibold;
+}
+
+.menu {
+	@apply flex flex-row items-center justify-center gap-x-5;
+	@apply text-sm font-medium;
+	@apply sm:gap-x-7;
+}
+
+.cta_menu {
+	@apply flex-none;
+	@apply hover:text-foreground/75;
+}
+
+.cta_action {
+	@apply relative;
+	@apply rounded-md border border-border;
+	@apply p-1.5;
+	@apply hover:bg-border;
+
+	* {
+		@apply pointer-events-none;
+	}
+}
+
+.icon {
+	@apply w-5 h-5 transition;
+
+	&.icon_light {
+		@apply rotate-0 scale-100 dark:hidden dark:-rotate-90 dark:scale-0;
+	}
+
+	&.icon_dark {
+		@apply hidden rotate-90 scale-0 dark:block dark:rotate-0 dark:scale-100;
+	}
+}

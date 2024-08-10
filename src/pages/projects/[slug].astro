@@ -1,0 +1,26 @@
+---
+export const prerender = true
+
+import { getAllProjects } from '@/utils'
+
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
+
+import Article from '@/libs/templates/Article.astro'
+
+export const getStaticPaths = (async () => {
+	const projectEntries = await getAllProjects()
+	return projectEntries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry }
+	}))
+}) satisfies GetStaticPaths
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
+
+const { entry } = Astro.props
+const { Content } = await entry.render()
+---
+
+<Article entry={entry}>
+	<Content />
+</Article>

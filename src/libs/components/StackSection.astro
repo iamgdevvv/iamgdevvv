@@ -1,0 +1,38 @@
+---
+import { Icon } from 'astro-icon/components'
+
+import styles from './styles/StackSection.module.css'
+
+interface Props {
+	class?: string
+	title: string
+	stacks: {
+		name: string
+		description: string
+		href: string
+		iconPath: string
+		iconBgColour: string
+	}[]
+}
+const { class: className, title, stacks, ...props } = Astro.props
+---
+
+<div class:list={[className, styles.stack_section]} {...props}>
+	<h2 class={styles.title}>{title}</h2>
+	<div class={styles.stacks}>
+		{
+			stacks.map((stack) => (
+				<a class={styles.stack_item} href={stack.href} id={stack.name} target='_blank'>
+					<div class={styles.stack_inner}>
+						<div class={styles.stack_bg} />
+						<Icon name={stack.iconPath} class={styles.stack_icon} />
+						<div class={styles.stack_content}>
+							<h3 class='text-base'>{stack.name}</h3>
+							<p class='text-sm text-muted-foreground'>{stack.description}</p>
+						</div>
+					</div>
+				</a>
+			))
+		}
+	</div>
+</div>

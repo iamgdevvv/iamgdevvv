@@ -9,7 +9,7 @@
 - Responsive & SEO-friendly
 - Dark / Light mode, using Tailwind and CSS variables (referenced from shadcn)
 - [Astro Assets Integration](https://docs.astro.build/en/guides/assets/) for optimised images
-- MD & [MDX](https://docs.astro.build/en/guides/markdown-content/#mdx-only-features) posts
+- MD & [MDX](https://docs.astro.build/en/guides/markdown-content/#mdx-only-features) projects
 - Pagination
 - [Automatic RSS feed](https://docs.astro.build/en/guides/rss)
 - Auto-generated [sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
@@ -17,7 +17,7 @@
 
 ## Credits
 
-- [astro-theme-cactus](https://github.com/chrismwilliams/astro-theme-cactus) for blog design
+- [astro-theme-cactus](https://github.com/chrismwilliams/astro-theme-cactus) for projects design
 - [minirezume-framer](https://minirezume.framer.website/) for resume homepage design
 
 ## Project Structure
@@ -64,16 +64,16 @@ To edit page components found site-wide such as the card used in the homepage, e
 
 To edit the base layouts of all pages, edit the `src/layouts/BaseTemplate.astro` file.
 
-To edit the layout of a blog article, edit the `src/layouts/BlogPost.astro` file.
+To edit the layout of a projects article, edit the `src/layouts/ProjectProject.astro` file.
 
-### Blog content
+### Project content
 
-To add blog content, insert `.md` files in the `src/content/` directory.
+To add projects content, insert `.md` files in the `src/content/` directory.
 
-To add images in blog articles, insert a folder in the `src/content/` directory, add both the `.md` and image files into the new folder, and reference the image in your `.md` file.
+To add images in projects articles, insert a folder in the `src/content/` directory, add both the `.md` and image files into the new folder, and reference the image in your `.md` file.
 
 ## Theming
 
 To change the theme colours of the site, edit the `src/styles/app.css` file.
 
-To change the fonts of the site, add your font files into `/public`, add it as a `@font-face` in the `src/styles/app.css` file, as a `fontFamily` in the `tailwind.config.js` file, and apply the new font class to the `body` tag in the `src/layouts/BaseTemplate.astro` file.
+To change the fonts of the site, add your font files into `/public`, add it as a `@font-face` in the `src/styles/app.css` file, as a `fontFamily` in the `tailwind.config.js` file, and apply the new font class to the `body` stack in the `src/layouts/BaseTemplate.astro` file.

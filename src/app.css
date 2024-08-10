@@ -1,58 +1,201 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+	--background: 220deg 13.04% 90.98%;
+	--background: 210 33% 99%;
+	--foreground: 240 10% 3.9%;
+	--card: 0 0% 100%;
+	--card-foreground: 240 10% 3.9%;
+	--popover: 0 0% 100%;
+	--popover-foreground: 240 10% 3.9%;
+	--primary: 240 5.9% 10%;
+	--primary-foreground: 0 0% 98%;
+	--secondary: 240 4.8% 95.9%;
+	--secondary-foreground: 240 5.9% 10%;
+	--muted: 240 4.8% 95.9%;
+	--muted-foreground: 240 3.8% 46.1%;
+	--accent: 240 4.8% 95.9%;
+	--accent-foreground: 240 5.9% 10%;
+	--destructive: 0 72.22% 50.59%;
+	--destructive-foreground: 0 0% 98%;
+	--border: 240 5.9% 90%;
+	--input: 240 5.9% 90%;
+	--ring: 240 5.9% 10%;
+	--radius: 0.5rem;
 
-@layer base {
-	:root {
-		--background: 210 33% 99%;
-		--foreground: 240 10% 3.9%;
-		--card: 0 0% 100%;
-		--card-foreground: 240 10% 3.9%;
-		--popover: 0 0% 100%;
-		--popover-foreground: 240 10% 3.9%;
-		--primary: 240 5.9% 10%;
-		--primary-foreground: 0 0% 98%;
-		--secondary: 240 4.8% 95.9%;
-		--secondary-foreground: 240 5.9% 10%;
-		--muted: 240 4.8% 95.9%;
-		--muted-foreground: 240 3.8% 46.1%;
-		--accent: 240 4.8% 95.9%;
-		--accent-foreground: 240 5.9% 10%;
-		--destructive: 0 72.22% 50.59%;
-		--destructive-foreground: 0 0% 98%;
-		--border: 240 5.9% 90%;
-		--input: 240 5.9% 90%;
-		--ring: 240 5.9% 10%;
-		--radius: 0.5rem;
-	}
-	.dark {
-		--background: 240 10% 3.9%;
-		--foreground: 0 0% 98%;
-		--card: 240 10% 3.9%;
-		--card-foreground: 0 0% 98%;
-		--popover: 240 10% 3.9%;
-		--popover-foreground: 0 0% 98%;
-		--primary: 0 0% 98%;
-		--primary-foreground: 240 5.9% 10%;
-		--secondary: 240 3.7% 15.9%;
-		--secondary-foreground: 0 0% 98%;
-		--muted: 240 3.7% 15.9%;
-		--muted-foreground: 240 5% 64.9%;
-		--accent: 240 3.7% 15.9%;
-		--accent-foreground: 0 0% 98%;
-		--destructive: 0 62.8% 30.6%;
-		--destructive-foreground: 0 0% 98%;
-		--border: 240 3.7% 15.9%;
-		--input: 240 3.7% 15.9%;
-		--ring: 240 4.9% 83.9%;
+	--tw-blur: ;
+	--tw-brightness: ;
+	--tw-contrast: ;
+	--tw-grayscale: ;
+	--tw-hue-rotate: ;
+	--tw-invert: ;
+	--tw-saturate: ;
+	--tw-sepia: ;
+	--tw-drop-shadow: ;
+}
+.dark {
+	--background: 240 10% 3.9%;
+	--foreground: 0 0% 98%;
+	--card: 240 10% 3.9%;
+	--card-foreground: 0 0% 98%;
+	--popover: 240 10% 3.9%;
+	--popover-foreground: 0 0% 98%;
+	--primary: 0 0% 98%;
+	--primary-foreground: 240 5.9% 10%;
+	--secondary: 240 3.7% 15.9%;
+	--secondary-foreground: 0 0% 98%;
+	--muted: 240 3.7% 15.9%;
+	--muted-foreground: 240 5% 64.9%;
+	--accent: 240 3.7% 15.9%;
+	--accent-foreground: 0 0% 98%;
+	--destructive: 0 62.8% 30.6%;
+	--destructive-foreground: 0 0% 98%;
+	--border: 240 3.7% 15.9%;
+	--input: 240 3.7% 15.9%;
+	--ring: 240 4.9% 83.9%;
+}
+
+* {
+	@apply border-border;
+}
+
+@media screen and (min-color-index: 0) and(-webkit-min-device-pixel-ratio:0) {
+	img {
+		-webkit-mask-image: -webkit-radial-gradient(white, black);
 	}
 }
 
-@layer base {
-	* {
-		@apply border-border;
+html {
+	@apply w-full overflow-x-hidden;
+	@apply font-sans text-sm;
+	scroll-behavior: smooth;
+}
+
+body {
+	@apply container;
+	@apply flex flex-col;
+	@apply bg-background;
+	@apply leading-relaxed text-foreground;
+}
+
+[id] {
+	@apply scroll-mt-[calc(var(--header-height)+20px)];
+}
+
+img {
+	@apply h-auto max-h-full w-full;
+	@apply object-cover object-center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@apply font-bold leading-tight;
+}
+
+h1,
+h2 {
+	@apply mb-2 leading-tight;
+}
+
+h3,
+h4,
+h5,
+h6 {
+	@apply mb-1 leading-snug;
+}
+
+h1 {
+	@apply text-3xl;
+}
+
+h2 {
+	@apply text-2xl;
+}
+
+h3 {
+	@apply text-xl;
+}
+
+h4 {
+	@apply text-lg;
+}
+
+h5 {
+	@apply text-lg;
+}
+
+h6 {
+	@apply text-base;
+}
+
+br {
+	@apply <lg:hidden;
+}
+
+ul,
+ol,
+table,
+p {
+	& + ul,
+	& + ol,
+	& + table,
+	& + p {
+		@apply mt-[24px];
 	}
-	body {
-		@apply bg-background text-foreground;
+}
+
+b,
+strong {
+	@apply font-bold;
+}
+
+td,
+th {
+	@apply align-baseline;
+}
+
+a,
+input,
+select,
+textarea,
+button {
+	@apply transition;
+}
+
+a {
+	@apply hover:underline;
+}
+
+.gscrollbar-fixer.glightbox-open {
+	@apply mx-auto;
+
+	.gdesc-inner {
+		@apply p-4;
+		@apply bg-gray-100;
 	}
+
+	.gslide-title {
+		@apply font-sans text-xs font-semibold;
+		@apply mb-0;
+	}
+}
+
+#site {
+	@apply relative z-10;
+	@apply flex flex-col;
+	@apply min-h-dvh min-h-screen w-full;
+
+	#site-main {
+		flex: 1 0 auto;
+	}
+}
+
+#particles {
+	@apply fixed left-0 top-0 z-0;
+	@apply h-full w-full;
+	@apply filter invert;
+	@apply dark:invert-0;
+	@apply opacity-20;
 }

@@ -1,19 +1,19 @@
 import rss from '@astrojs/rss'
 import { siteConfig } from '@/configs/site'
-import { getAllPosts } from '@/utils'
+import { getAllProjects } from '@/utils'
 
 export const GET = async () => {
-	const posts = await getAllPosts()
+	const projects = await getAllProjects()
 
 	return rss({
 		title: siteConfig.title,
 		description: siteConfig.description,
 		site: import.meta.env.SITE,
-		items: posts.map((post) => ({
-			title: post.data.title,
-			description: post.data.description,
-			pubDate: post.data.publishDate,
-			link: `/blog/${post.slug}`
+		items: projects.map((project) => ({
+			title: project.data.title,
+			description: project.data.description,
+			pubDate: project.data.publishDate,
+			link: `/projects/${project.slug}`
 		}))
 	})
 }

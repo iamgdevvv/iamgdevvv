@@ -1,0 +1,25 @@
+.footer {
+	@apply w-full py-5;
+	@apply flex flex-col items-center justify-between gap-y-3;
+	@apply border-t border-border;
+}
+
+.socials {
+	@apply flex items-center gap-x-4;
+}
+
+.link_social {
+	@apply flex items-center;
+	@apply text-muted-foreground hover:text-muted-foreground/75;
+}
+
+.icon_social {
+	@apply h-5 w-5;
+	@apply flex-shrink-0;
+}
+
+@screen sm {
+	.footer {
+		@apply flex-row gap-y-0;
+	}
+}

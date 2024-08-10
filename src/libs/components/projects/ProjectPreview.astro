@@ -1,0 +1,35 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types'
+import type { CollectionEntry } from 'astro:content'
+
+import FormattedDate from '@components/FormattedDate.astro'
+import styles from './styles/ProjectPreview.module.css'
+
+type Props<Stack extends HTMLTag> = Polymorphic<{ as: Stack }> & {
+	entry: CollectionEntry<'project'>
+	withDesc?: boolean
+}
+
+const { as: Stack = 'div', entry, withDesc = false } = Astro.props
+---
+
+<div class={styles.project_preview}>
+	<FormattedDate class={styles.date} date={entry.data.publishDate} />
+
+	<Stack class={styles.content}>
+		<a
+			data-astro-prefetch
+			href={`/projects/${entry.slug}/`}
+			class='font-semibold hover:text-muted-foreground'
+		>
+			{entry.data.title}
+		</a>
+		{
+			withDesc && (
+				<p class={styles.description}>
+					{entry.data.description}
+				</p>
+			)
+		}
+	</Stack>
+</div>

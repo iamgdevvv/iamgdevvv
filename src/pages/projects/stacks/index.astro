@@ -1,0 +1,49 @@
+---
+import { Icon } from 'astro-icon/components'
+
+import { getAllProjects, getUniqueStacksWithCount } from '@/utils'
+
+import Button from '@components/Button.astro'
+import PageLayout from '@templates/BaseTemplate.astro'
+
+const allProjects = await getAllProjects()
+const allStacks = getUniqueStacksWithCount(allProjects)
+
+const meta = {
+	description: "A list of all the topics I've written about in my projects",
+	title: 'All Stacks'
+}
+---
+
+<PageLayout meta={meta}>
+	<div class='w-full'>
+		<Button title='Back' href='/projects' style='button'>
+			<Icon name='back' slot='icon-before' />
+		</Button>
+
+		<h1 class='mb-6 mt-5 text-2xl font-bold'>Stacks</h1>
+		{allStacks.length === 0 && <p>No projects yet.</p>}
+
+		{
+			allStacks.length > 0 && (
+				<ul class='flex flex-col gap-y-3'>
+					{allStacks.map(([stack, val]) => (
+						<li class='flex items-center gap-x-2 '>
+							<a
+								class='inline-block underline underline-offset-4 hover:text-foreground/75'
+								data-astro-prefetch
+								href={`/projects/stacks/${stack}/`}
+								title={`View projects with the stack: ${stack}`}
+							>
+								&#35;{stack}
+							</a>
+							<span class='inline-block'>
+								- {val} project{val > 1 && 's'}
+							</span>
+						</li>
+					))}
+				</ul>
+			)
+		}
+	</div>
+</PageLayout>

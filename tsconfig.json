@@ -13,6 +13,8 @@
 		"isolatedModules": true,
 		"noEmit": true,
 
+		"exactOptionalPropertyTypes": false,
+
 		"strict": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,

@@ -1,0 +1,16 @@
+.toc {
+	@apply hidden;
+	@apply text-sm;
+
+	.title {
+		@apply text-base;
+		@apply mb-4;
+	}
+}
+
+@screen md {
+	.toc {
+		@apply sticky top-5;
+		@apply flex flex-col;
+	}
+}

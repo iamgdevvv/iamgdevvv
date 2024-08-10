@@ -1,0 +1,4 @@
+.main {
+	@apply flex flex-col items-start;
+	@apply w-full pt-10 pb-16;
+}

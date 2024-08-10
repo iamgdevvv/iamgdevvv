@@ -1,9 +1,0 @@
-.post_preview {
-    @apply flex flex-col gap-2;
-    @apply [&_q]:basis-full;
-
-    @screen sm {
-        @apply flex-row;
-        @apply gap-x-4;
-    }
-}

@@ -1,6 +1,6 @@
 ---
 import type { HTMLAttributes, HTMLTag } from 'astro/types'
-import { cn } from '@/utils'
+import styles from './styles/Label.module.css'
 
 type Props = (
 	| {
@@ -15,17 +15,10 @@ type Props = (
 	class?: string
 	title: string
 }
-const { class: className, as: Tag = 'div', title, ...props }: Props = Astro.props
+const { class: className, as: Stack = 'div', title, ...props }: Props = Astro.props
 ---
 
-<Tag
-	class={cn(
-		className,
-		'flex flex-row items-center justify-center gap-x-2',
-		'href' in props && 'hover:opacity-75 transition-all'
-	)}
-	{...props}
->
+<Stack class:list={[className, styles.label]} {...props}>
 	<slot name='icon' />
 	<span>{title}</span>
-</Tag>
+</Stack>

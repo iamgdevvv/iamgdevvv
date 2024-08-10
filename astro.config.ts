@@ -1,33 +1,58 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig, passthroughImageService } from 'astro/config'
 import mdx from '@astrojs/mdx'
-import tailwind from '@astrojs/tailwind'
+import UnoCSS from '@unocss/astro'
 import sitemap from '@astrojs/sitemap'
-import node from '@astrojs/node'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import rehypeExternalLinks from 'rehype-external-links'
 import expressiveCode from 'astro-expressive-code'
 import icon from 'astro-icon'
-import { expressiveCodeOptions } from './src/configs/site.ts'
-import { remarkReadingTime } from './src/utils/remarkReadingTime.ts'
+import { expressiveCodeOptions, siteConfig } from './src/configs/site.ts'
 
-// import vercel from '@astrojs/vercel/serverless'
+import vercel from '@astrojs/vercel/serverless'
+
+import webmanifest from 'astro-webmanifest'
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://iamgdev.my.id',
+	image: {
+		service: passthroughImageService()
+	},
 	integrations: [
 		expressiveCode(expressiveCodeOptions),
-		tailwind({
-			applyBaseStyles: false
+		UnoCSS({ injectReset: true }),
+		sitemap({
+			changefreq: 'daily',
+			priority: 0.7,
 		}),
-		sitemap(),
 		mdx(),
 		icon({
 			iconDir: 'src/libs/icons'
+		}),
+		webmanifest({
+			icon: 'src/assets/iamgdev.png',
+			name: 'Iamgdev Portfolio',
+			short_name: 'iamgdev',
+			description: siteConfig.description,
+			lang: siteConfig.lang,
+			start_url: '/',
+			theme_color: '#fed7aa',
+			background_color: '#fff',
+			display: 'standalone',
+			locales: {
+				id: {
+					name: 'Portfolio Iamgdev',
+					short_name: 'iamgdev',
+					description:
+						'Pixel sempurna untuk membangun situs web dan memprioritaskan kinerja dan REST API yang andal untuk membuat tim Front-End senang',
+					lang: 'id-ID',
+					start_url: '/id'
+				}
+			}
 		})
 	],
 	markdown: {
-		remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
+		remarkPlugins: [remarkUnwrapImages],
 		rehypePlugins: [
 			[
 				rehypeExternalLinks,
@@ -47,19 +72,16 @@ export default defineConfig({
 		defaultStrategy: 'viewport'
 	},
 	output: 'hybrid',
-	adapter: node({
-		mode: 'standalone'
+	adapter: vercel({
+		isr: {
+			expiration: 60 * 5
+		},
+		edgeMiddleware: true,
+		webAnalytics: { enabled: true },
+		imageService: true,
+		imagesConfig: {
+			domains: ['iamgdev.my.id'],
+			sizes: [320, 640, 1280]
+		}
 	})
-	// adapter: vercel({
-	// 	isr: {
-	// 		expiration: 60 * 5
-	// 	},
-	// 	edgeMiddleware: true,
-	// 	webAnalytics: { enabled: true },
-	// 	imageService: true,
-	// 	imagesConfig: {
-	// 		domains: ['www.iamgdev.my.id'],
-	// 		sizes: [320, 640, 1280]
-	// 	}
-	// })
 })

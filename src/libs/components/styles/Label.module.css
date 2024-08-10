@@ -1,0 +1,7 @@
+.label {
+	@apply flex flex-row items-center justify-center gap-x-2 hover:opacity-75;
+
+	span {
+		@apply inline-block;
+	}
+}

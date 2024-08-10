@@ -1,0 +1,19 @@
+.section {
+	@apply flex flex-col gap-y-2;
+}
+
+.heading {
+	@apply text-xl;
+	@apply md:w-1/4 md:pt-1;
+}
+
+.section_content {
+	@apply flex flex-col gap-y-3;
+	@apply md:w-3/4;
+}
+
+@screen md {
+	.section {
+		@apply flex-row gap-y-0;
+	}
+}

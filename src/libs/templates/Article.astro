@@ -1,0 +1,77 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { Icon } from 'astro-icon/components'
+
+import Hero from '@/libs/components/Hero.astro'
+import TOC from '@components/projects/TOC.astro'
+import Button from '@components/Button.astro'
+
+import PageLayout from '@templates/BaseTemplate.astro'
+import 'glightbox/dist/css/glightbox.css'
+
+import styles from './styles/Article.module.css'
+
+interface Props {
+	entry: CollectionEntry<'project'> | CollectionEntry<'project'>
+}
+
+const { entry } = Astro.props
+const {
+	data: { description, ogImage, publishDate, title }
+} = entry
+
+const articleDate = publishDate.toISOString()
+const { headings } = await entry.render()
+---
+
+<PageLayout meta={{ articleDate, description, ogImage, title }}>
+	<Button title='Back' href='/projects' style='button'>
+		<Icon name='back' slot='icon-before' />
+	</Button>
+	<div class={styles.article_wrapper}>
+		<TOC headings={headings} class={styles.sidebar} />
+		<article id='article' data-pagefind-body class={styles.article}>
+			<Hero content={entry} />
+			<div class={styles.article_content}>
+				<hr />
+				<slot />
+			</div>
+		</article>
+	</div>
+	<button aria-label='Back to Top' class={styles.cta_totop} data-show='false' id='to-top-btn'>
+		<Icon name='top' />
+	</button>
+</PageLayout>
+
+<script>
+	import GLightbox from 'glightbox'
+
+	const init = () => {
+		const scrollBtn = document.getElementById('to-top-btn') as HTMLButtonElement
+		const targetHeader = document.getElementById('projects-hero') as HTMLDivElement
+
+		if (scrollBtn && targetHeader) {
+			function callback(entries: IntersectionObserverEntry[]) {
+				entries.forEach((entry) => {
+					// only show the scroll to top button when the heading is out of view
+					scrollBtn.dataset.show = (!entry.isIntersecting).toString()
+				})
+			}
+
+			scrollBtn.addEventListener('click', () => {
+				document.documentElement.scrollTo({ behavior: 'smooth', top: 0 })
+			})
+
+			const observer = new IntersectionObserver(callback)
+			observer.observe(targetHeader)
+		}
+
+		GLightbox({
+			selector: '#article img'
+		})
+	}
+
+	init()
+
+	document.addEventListener('astro:after-swap', init)
+</script>

@@ -7,7 +7,7 @@ import BaseHead from '@components/BaseHead.astro'
 import Footer from '@layouts/Footer.astro'
 import Header from '@layouts/Header.astro'
 import ThemeProvider from '@components/ThemeProvider.astro'
-
+import styles from './styles/BaseTemplate.module.css'
 
 interface Props {
 	meta: SiteMeta
@@ -18,19 +18,30 @@ const {
 } = Astro.props
 ---
 
-<html lang={siteConfig.lang} class=''>
+<html lang={siteConfig.lang}>
 	<head>
 		<BaseHead articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
 	</head>
 
-	<body class='flex justify-center bg-background'>
-		<ThemeProvider />
-		<main
-			class='flex min-h-screen w-screen max-w-[60rem] flex-col items-center px-6 pb-10 pt-7 text-[0.92rem] leading-relaxed sm:px-10 lg:px-10'
-		>
+	<body>
+		<div id='site'>
 			<Header />
-			<slot />
+			<main id='site-main' class={styles.main}>
+				<slot />
+			</main>
 			<Footer />
-		</main>
+			<ThemeProvider />
+		</div>
+
+		<div id='particles'></div>
+
+		<script is:inline src='/scripts/particles.min.js'></script>
+		<script is:inline>
+			particlesJS('particles')
+
+			document.addEventListener('astro:after-swap', () => {
+				particlesJS('particles')
+			})
+		</script>
 	</body>
 </html>

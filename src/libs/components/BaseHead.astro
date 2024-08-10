@@ -1,12 +1,13 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from 'astro:transitions'
 
 import type { SiteMeta } from '@/types'
 import { siteConfig } from '@/configs/site'
 
-import '@fontsource-variable/plus-jakarta-sans';
+import '@fontsource-variable/plus-jakarta-sans'
+import 'virtual:uno.css'
 import '@/app.css'
 
 type Props = SiteMeta
@@ -16,7 +17,7 @@ const { articleDate, description, ogImage, title } = Astro.props
 const titleSeparator = '•'
 const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
-const socialImageURL = new URL(ogImage ? ogImage : '/social-card.png', Astro.url).href
+const socialImageURL = new URL(ogImage ? ogImage : '/favicon.png', Astro.url).href
 ---
 
 <meta charset='utf-8' />
@@ -24,21 +25,16 @@ const socialImageURL = new URL(ogImage ? ogImage : '/social-card.png', Astro.url
 <meta content='IE=edge' http-equiv='X-UA-Compatible' />
 <title>{siteTitle}</title>
 
-<link rel='apple-touch-icon' sizes='180x180' href='/favicon/apple-touch-icon.png' />
-<link rel='icon' type='image/png' sizes='32x32' href='/favicon/favicon-32x32.png' />
-<link rel='icon' type='image/png' sizes='16x16' href='/favicon/favicon-16x16.png' />
-<link rel='manifest' href='/favicon/site.webmanifest' />
-
 {/* Canonical URL */}
 <link rel='canonical' href={canonicalURL} />
 
-{/* Primary Meta Tags */}
+{/* Primary Meta Stacks */}
 <meta content={siteTitle} name='title' />
 <meta content={description} name='description' />
 <meta content={siteConfig.author} name='author' />
 
 {/* Theme Colour */}
-<meta content='' name='theme-color' />
+<meta content='#fed7aa' name='theme-color' />
 
 {/* Open Graph / Facebook */}
 <meta content={articleDate ? 'article' : 'website'} property='og:type' />
@@ -65,9 +61,6 @@ const socialImageURL = new URL(ogImage ? ogImage : '/social-card.png', Astro.url
 <meta content={title} property='twitter:title' />
 <meta content={description} property='twitter:description' />
 <meta content={socialImageURL} property='twitter:image' />
-
-{/* Sitemap */}
-<link href='/sitemap-index.xml' rel='sitemap' />
 
 {/* RSS auto-discovery */}
 <link href='/rss.xml' rel='alternate' title={siteConfig.title} type='application/rss+xml' />

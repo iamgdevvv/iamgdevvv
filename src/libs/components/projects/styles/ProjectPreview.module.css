@@ -1,0 +1,26 @@
+.project_preview {
+	@apply flex flex-col gap-2;
+	@apply w-full;
+
+	.date {
+		@apply inline-block;
+		@apply min-w-[120px] pt-1;
+		@apply text-sm italic text-muted-foreground;
+	}
+
+	.content {
+		@apply sm:w-[calc(100%-120px)];
+	}
+
+    .description {
+		@apply mt-2;
+        @apply line-clamp-3 text-sm text-muted-foreground;
+    }
+}
+
+@screen sm {
+	.project_preview {
+		@apply flex-row items-start;
+		@apply gap-x-4;
+	}
+}

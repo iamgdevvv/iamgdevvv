@@ -1,0 +1,5 @@
+.link {
+    @apply inline-block;
+    @apply line-clamp-2 text-foreground/75;
+    @apply hover:text-foreground;
+}

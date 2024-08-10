@@ -1,0 +1,52 @@
+.stack_section {
+	@apply flex flex-col;
+	@apply rounded-2xl border border-border bg-primary-foreground;
+	@apply px-3 py-5;
+}
+
+.title {
+	@apply px-2;
+	@apply text-xl;
+	@apply mb-4;
+}
+
+.stacks {
+	@apply grid grid-cols-1 gap-2;
+}
+
+@screen sm {
+	.stacks {
+		@apply grid-cols-2;
+	}
+}
+
+.stack_item {
+	@apply relative;
+
+	&:hover .stack_bg {
+		@apply opacity-50;
+	}
+}
+
+.stack_inner {
+	@apply relative;
+	@apply flex flex-row items-center gap-x-4;
+	@apply px-2 py-0.5;
+}
+
+.stack_bg {
+	@apply absolute -inset-0 z-10;
+	@apply rounded-lg border border-border bg-muted;
+	@apply opacity-0;
+}
+
+.stack_icon {
+	@apply z-20;
+	@apply h-10 w-10 p-2;
+	@apply rounded-lg bg-muted;
+}
+
+.stack_content {
+	@apply z-20;
+	@apply flex flex-col;
+}

@@ -1,0 +1,5 @@
+.paginator {
+	@apply flex items-center gap-x-4;
+	@apply mt-6;
+	@apply text-sm;
+}

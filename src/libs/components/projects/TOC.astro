@@ -1,0 +1,29 @@
+---
+import type { MarkdownHeading } from 'astro'
+import { generateToc } from '@/utils'
+
+import TOCHeading from '@components/projects/TOCHeading.astro'
+import styles from './styles/TOC.module.css'
+
+interface Props {
+	headings: MarkdownHeading[]
+	class?: string
+}
+
+const { headings, class: className } = Astro.props
+
+const toc = generateToc(headings)
+---
+
+<aside class={`${styles.toc} ${className}`}>
+	<h4 class={styles.title}>Table of Content</h4>
+	<ul class='text-card-foreground'>
+		{
+			toc.map((heading) => (
+				<li>
+					<TOCHeading heading={heading} />
+				</li>
+			))
+		}
+	</ul>
+</aside>

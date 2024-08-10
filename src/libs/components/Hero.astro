@@ -1,0 +1,68 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
+import FormattedDate from '@components/FormattedDate.astro'
+import styles from './styles/Hero.module.css'
+
+interface Props {
+	content: CollectionEntry<'project'>
+}
+
+const {
+	content: { data }
+} = Astro.props
+---
+
+<div id='projects-hero'>
+	{
+		data.coverImage && (
+			<div class={styles.cover}>
+				<Image
+					alt={data.coverImage.alt}
+					class={styles.image}
+					fetchpriority='high'
+					loading='eager'
+					src={data.coverImage.src}
+				/>
+			</div>
+		)
+	}
+	<span class={styles.metadata}>
+		<FormattedDate date={data.publishDate} />
+	</span>
+	<h1 class={styles.title}>
+		{data.title}
+	</h1>
+
+	{
+		!!data.stacks?.length && (
+			<div class={styles.stacks}>
+				<Icon name='tag' class={styles.icon_stack} />
+				{data.stacks.map((stack, i) => (
+					<>
+						<a
+							aria-label={`View more projects with the stack ${stack}`}
+							class={styles.stack}
+							href={`/projects/stacks/${stack}/`}
+						>
+							#{stack}
+						</a>
+						{i < data.stacks.length - 1 && ', '}
+					</>
+				))}
+			</div>
+		)
+	}
+
+	<div class={styles.projectinfo}>
+		<div class={styles.info_item}>
+			<Icon name='location' class={styles.icon_info} />
+			<span>{data.organization}</span>
+		</div>
+		<a href={data.link} target='_blank' class={styles.info_item}>
+			<Icon name='link' class={styles.icon_info} />
+			<span>{data.link}</span>
+		</a>
+	</div>
+</div>

@@ -1,0 +1,19 @@
+.stack_layout {
+	@apply flex flex-col gap-y-2;
+}
+
+.title {
+	@apply w-1/5;
+	@apply text-base font-semibold;
+}
+
+.stacks {
+	@apply flex flex-row flex-wrap gap-x-4 gap-y-2;
+	@apply w-4/5;
+}
+
+@screen md {
+	.stack_layout {
+		@apply flex-row gap-x-5 gap-y-0;
+	}
+}
