@@ -44,7 +44,7 @@ export default defineConfig({
 					name: 'Portfolio Iamgdev',
 					short_name: 'iamgdev',
 					description:
-						'Pixel sempurna untuk membangun situs web dan memprioritaskan kinerja dan REST API yang andal untuk membuat tim Front-End senang',
+						'Membangun situs web responsive dan memprioritaskan kinerja dan REST API yang andal untuk membuat tim Front-End senang',
 					lang: 'id-ID',
 					start_url: '/id'
 				}
