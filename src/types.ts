@@ -21,4 +21,5 @@ export type SiteMeta = {
 	description?: string
 	ogImage?: string | undefined
 	articleDate?: string | undefined
+	index?: boolean
 }

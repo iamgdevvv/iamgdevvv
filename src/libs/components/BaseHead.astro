@@ -12,7 +12,7 @@ import '@/app.css'
 
 type Props = SiteMeta
 
-const { articleDate, description, ogImage, title } = Astro.props
+const { articleDate, description, ogImage, title, index } = Astro.props
 
 const titleSeparator = '•'
 const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`
@@ -23,6 +23,8 @@ const socialImageURL = new URL(ogImage ? ogImage : '/favicon.png', Astro.url).hr
 <meta charset='utf-8' />
 <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 <meta content='IE=edge' http-equiv='X-UA-Compatible' />
+<meta name='robots' content={`${index ? 'index' : 'noindex'}, follow`} />
+
 <title>{siteTitle}</title>
 
 {/* Canonical URL */}
@@ -75,7 +77,8 @@ const socialImageURL = new URL(ogImage ? ogImage : '/favicon.png', Astro.url).hr
 	}
 
 	@keyframes slow_pulse {
-		0%, 100% {
+		0%,
+		100% {
 			opacity: 1;
 		}
 		50% {

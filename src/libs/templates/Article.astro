@@ -24,7 +24,7 @@ const articleDate = publishDate.toISOString()
 const { headings } = await entry.render()
 ---
 
-<PageLayout meta={{ articleDate, description, ogImage, title }}>
+<PageLayout meta={{ articleDate, description, ogImage, title, index: false }}>
 	<Button title='Back' href='/projects' style='button'>
 		<Icon name='back' slot='icon-before' />
 	</Button>

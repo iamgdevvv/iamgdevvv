@@ -20,16 +20,11 @@ const { as: Stack = 'div', entry, withDesc = false } = Astro.props
 		<a
 			data-astro-prefetch
 			href={`/projects/${entry.slug}/`}
+			rel='nofollow noreferrer'
 			class='font-semibold hover:text-muted-foreground'
 		>
 			{entry.data.title}
 		</a>
-		{
-			withDesc && (
-				<p class={styles.description}>
-					{entry.data.description}
-				</p>
-			)
-		}
+		{withDesc && <p class={styles.description}>{entry.data.description}</p>}
 	</Stack>
 </div>
