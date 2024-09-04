@@ -1,6 +1,6 @@
 ---
 organization: 'Iamgdev'
-link: 'https://www.codegrape.com/item/geulis-wpadmin-responsive-prettiest-wordpress-dashboard/57209'
+link: 'https://www.codester.com/items/50598/geulis-wpadmin-wordpress-dashboard'
 title: 'Geulis WPAdmin - Responsive & Prettiest Wordpress Dashboard'
 publishDate: '21 August 2024'
 description: 'Simplifies and optimizes your WordPress Dashboard. Say goodbye to unnecessary options and hello to a user-friendly experience'
@@ -13,6 +13,11 @@ stacks: ['wordpress', 'react', 'tailwindcss']
 ## Description
 
 Geulis WPAdmin is a robust solution designed to streamline and enhance your WordPress admin experience. Engineered with advanced customization and optimization capabilities, this plugin offers unparalleled control over your dashboard’s appearance and functionality.
+
+| Platform   | Link                                                                                         
+|------------|----------------------------------------------------------------------------------------------|
+| Codester   | https://www.codester.com/items/50598/geulis-wpadmin-wordpress-dashboard |
+| CodeGrape  | https://www.codegrape.com/item/geulis-wpadmin-responsive-prettiest-wordpress-dashboard/57209 |
 
 ## Stacks
 
