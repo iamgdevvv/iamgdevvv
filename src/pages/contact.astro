@@ -1,0 +1,20 @@
+---
+import { Icon } from 'astro-icon/components'
+
+import PageLayout from '@templates/BaseTemplate.astro'
+import ContactForm from '@forms/Contact.astro'
+import Button from '@/libs/components/Button.astro'
+---
+
+<PageLayout meta={{ title: 'Home' }}>
+	<Button as='a' title='Back' href='/' style='button'>
+		<Icon name='back' slot='icon-before' />
+	</Button>
+
+	<div
+		class='max-w-600px w-full mx-auto mt-6 p-8 rounded-2xl border border-border bg-primary-foreground'
+	>
+		<h2 class='mb-6'>What do you want to ask</h2>
+		<ContactForm />
+	</div>
+</PageLayout>

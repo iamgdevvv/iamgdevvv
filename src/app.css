@@ -164,6 +164,21 @@ html {
 	a {
 		@apply hover:underline;
 	}
+
+	input[type], textarea, select {
+		@apply py-2 px-4;
+		@apply text-sm;
+		@apply border border-secondary-foreground rounded;
+		@apply bg-primary-foreground;
+
+		&[aria-invalid="true"] {
+			@apply border-red-4;
+		}
+	}
+
+	textarea {
+		@apply min-h-40
+	}
 }
 
 .gscrollbar-fixer.glightbox-open {

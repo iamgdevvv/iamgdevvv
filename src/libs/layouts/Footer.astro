@@ -2,6 +2,7 @@
 import dayjs from 'dayjs'
 import styles from './styles/Footer.module.css'
 import { Icon } from 'astro-icon/components'
+import socials from '@/configs/social'
 ---
 
 <footer class={styles.footer}>
@@ -10,10 +11,14 @@ import { Icon } from 'astro-icon/components'
 	</span>
 
 	<ul class={styles.socials}>
-		<li>
-			<a class={styles.link_social} href='https://www.linkedin.com/in/grafis-nuresa/'>
-				<Icon name='linkedin' class={styles.icon_social} />
-			</a>
-		</li>
+		{
+			Object.keys(socials).map((social) => (
+				<li>
+					<a class={styles.link_social} href={socials[social as keyof typeof socials]}>
+						<Icon name={social} class={styles.icon_social} />
+					</a>
+				</li>
+			))
+		}
 	</ul>
 </footer>

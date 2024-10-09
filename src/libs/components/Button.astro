@@ -1,16 +1,17 @@
 ---
-import type { HTMLAttributes, HTMLTag } from 'astro/types'
+import type { HTMLAttributes } from 'astro/types'
 
 import styles from './styles/Button.module.css'
 
 type Props = (
 	| {
 			as: 'a'
-			target: HTMLAttributes<'a'>['target']
+			target?: HTMLAttributes<'a'>['target']
 			href: string
 	  }
 	| {
-			as?: HTMLTag
+			as: 'button'
+			type: HTMLAttributes<'button'>['type']
 	  }
 ) & {
 	id?: string

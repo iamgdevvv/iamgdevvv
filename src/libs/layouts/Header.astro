@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components'
 
 import styles from './styles/Header.module.css'
+import { menuLinks } from '@/configs/site'
 ---
 
 <header class={styles.header}>
@@ -9,12 +10,15 @@ import styles from './styles/Header.module.css'
 		<a class={styles.branding} href='/' aria-label='Brand'>iamgdev</a>
 
 		<ul class={styles.menu}>
-			<li>
-				<a href='/projects' class={styles.cta_menu} aria-label='Nav Menu Item'>Project</a>
-			</li>
-			<li>
-				<a href='/stacks' class={styles.cta_menu} aria-label='Nav Menu Item'>Stacks</a>
-			</li>
+			{
+				menuLinks.map((menuLink) => (
+					<li>
+						<a href={menuLink.path} class={styles.cta_menu} aria-label={menuLink.title}>
+							{menuLink.title}
+						</a>
+					</li>
+				))
+			}
 			<li class='ms-auto'>
 				<button id='toggleDarkMode' class={styles.cta_action}>
 					<span class='sr-only'>Dark Theme</span>

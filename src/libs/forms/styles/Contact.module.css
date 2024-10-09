@@ -1,0 +1,54 @@
+.form {
+	@apply flex flex-row flex-wrap;
+	@apply min-w-full w-auto -mx-2 -mb-4;
+
+	.field {
+		@apply w-full px-2 mb-4;
+
+		&.field_half {
+			@apply w-1/2;
+		}
+	}
+
+	.label {
+		@apply block;
+		@apply text-sm;
+		@apply mb-1;
+	}
+
+	.action {
+		@apply w-full px-2 mb-4;
+		@apply flex justify-end;
+	}
+
+	input[type],
+	select,
+	textarea {
+		@apply w-full;
+	}
+}
+
+.cta_submit {
+	@apply text-md;
+	@apply py-3 px-4;
+}
+
+.message {
+	@apply hidden;
+	@apply text-green text-sm;
+	@apply p-2 mb-8;
+	@apply border border-green rounded;
+
+	pre {
+		@apply text-xs;
+	}
+
+	&[data-show='true'] {
+		@apply block;
+	}
+
+	&[data-invalid='true'] {
+		@apply text-red;
+		@apply border-red;
+	}
+}

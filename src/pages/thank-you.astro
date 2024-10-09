@@ -1,0 +1,30 @@
+---
+export const prerender = false
+
+import { Icon } from 'astro-icon/components'
+
+import type { Contact } from '@/utils'
+import PageLayout from '@templates/BaseTemplate.astro'
+import Button from '@components/Button.astro'
+
+const queryParams = Object.fromEntries(Astro.url.searchParams.entries()) as Contact
+---
+
+<PageLayout meta={{ title: 'Home' }}>
+	<div class='w-full'>
+		<Button as='a' title='Back' href='/' style='button'>
+			<Icon name='back' slot='icon-before' />
+		</Button>
+
+		<div class='mt-5 flex w-full flex-col gap-y-6'>
+			<div>
+				<h1>Thank you {queryParams.Name} ({queryParams.Organization})</h1>
+				<p>
+					Thank you for your asking. The information you provided in the data, including your email
+					({queryParams.Email}) and purpose ({queryParams.Purposes}), is very helpful for us to
+					understand your needs. We will follow up on your message that we have received.
+				</p>
+			</div>
+		</div>
+	</div>
+</PageLayout>

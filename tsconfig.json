@@ -26,6 +26,7 @@
 		"paths": {
 			"@/*": ["src/*"],
 			"@components/*": ["src/libs/components/*"],
+			"@forms/*": ["src/libs/forms/*"],
 			"@layouts/*": ["src/libs/layouts/*"],
 			"@templates/*": ["src/libs/templates/*"],
 		},

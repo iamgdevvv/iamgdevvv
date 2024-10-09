@@ -22,7 +22,7 @@
 }
 
 .menu {
-	@apply flex flex-row items-center justify-center gap-x-5;
+	@apply flex flex-row items-center justify-center gap-x-2;
 	@apply text-sm font-medium;
 	@apply sm:gap-x-7;
 }

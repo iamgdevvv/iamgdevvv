@@ -26,11 +26,11 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
 	})
 }
 
-interface Props {
+type Props = {
 	page: Page<CollectionEntry<'project'>>
 }
 
-const { page } = Astro.props
+const { page } = Astro.props as Props
 const { stack } = Astro.params
 
 const meta = {
@@ -56,7 +56,7 @@ const paginationProps = {
 
 <PageLayout meta={meta}>
 	<div class='w-full'>
-		<Button title='Back' href='/projects' style='button'>
+		<Button as='a' title='Back' href='/projects' style='button'>
 			<Icon name='back' slot='icon-before' />
 		</Button>
 		<h1 class='mb-6 mt-5 flex items-end gap-x-2 text-2xl font-bold'>

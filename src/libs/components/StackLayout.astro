@@ -13,6 +13,6 @@ const { title, stacks } = Astro.props
 <div class={styles.stack_layout}>
 	<h3 class={styles.title}>{title}</h3>
 	<div class={styles.stacks}>
-		{stacks.map((stack) => <Button as='span' title={stack.name} style='pill' />)}
+		{stacks.map((stack) => <Button as='a' href={stack.href} title={stack.name} style='pill' />)}
 	</div>
 </div>

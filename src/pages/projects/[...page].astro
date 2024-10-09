@@ -49,7 +49,7 @@ const paginationProps = {
 
 <PageLayout meta={meta}>
 	<div class='w-full'>
-		<Button title='Back' href='/' style='button'>
+		<Button as='a' title='Back' href='/' style='button'>
 			<Icon name='back' slot='icon-before' />
 		</Button>
 
@@ -76,7 +76,7 @@ const paginationProps = {
 							<ul class='text-bgColor flex flex-wrap gap-2'>
 								{uniqueStacks.map((stack) => (
 									<li>
-										<Button title={stack} href={`/projects/stacks/${stack}/`} style='pill' />
+										<Button as='a' title={stack} href={`/projects/stacks/${stack}/`} style='pill' />
 									</li>
 								))}
 							</ul>

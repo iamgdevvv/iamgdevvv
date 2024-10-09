@@ -25,7 +25,7 @@ const { headings } = await entry.render()
 ---
 
 <PageLayout meta={{ articleDate, description, ogImage, title, index: false }}>
-	<Button title='Back' href='/projects' style='button'>
+	<Button as='a' title='Back' href='/projects' style='button'>
 		<Icon name='back' slot='icon-before' />
 	</Button>
 	<div class={styles.article_wrapper}>
