@@ -1,5 +1,5 @@
 export { getAllProjects, sortMDByDate, getUniqueStacks, getUniqueStacksWithCount } from './project'
 export { generateToc } from './generateToc'
 export type { TocItem } from './generateToc'
-export { ContactSchema } from './schema'
-export type { Contact } from './schema'
+export { ContactSchema, GRecaptchaSchema } from './schema'
+export type { Contact, GRecaptcha } from './schema'

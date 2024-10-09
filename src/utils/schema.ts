@@ -8,7 +8,12 @@ const ContactSchema = z.object({
 	Message: z.string().min(1)
 })
 
-type Contact = z.infer<typeof ContactSchema>
+const GRecaptchaSchema = z.object({
+	token: z.string().min(1)
+})
 
-export { ContactSchema }
-export type { Contact }
+type Contact = z.infer<typeof ContactSchema>
+type GRecaptcha = z.infer<typeof GRecaptchaSchema>
+
+export { ContactSchema, GRecaptchaSchema }
+export type { Contact, GRecaptcha }

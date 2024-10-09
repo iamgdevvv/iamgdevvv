@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components'
 import Button from '../components/Button.astro'
 import styles from './styles/Contact.module.css'
 ---
@@ -48,7 +49,15 @@ method='POST' -->
 		></textarea>
 	</div>
 	<div class={styles.action}>
-		<Button as='button' type='submit' title='Get in touch' class={styles.cta_submit} />
+		<Button
+			id='cta_submit'
+			as='button'
+			type='submit'
+			title='Get in touch'
+			class={styles.cta_submit}
+		>
+			<Icon name='loader' slot='icon-after' />
+		</Button>
 	</div>
 </form>
 
@@ -57,6 +66,7 @@ method='POST' -->
 
 	const el_form = document.getElementById('contact-form') as HTMLFormElement
 	const el_message = document.getElementById('message') as HTMLDivElement
+	const el_submit = document.getElementById('cta_submit') as HTMLButtonElement
 	const els_input = document.querySelectorAll<HTMLInputElement>('[name]')
 
 	els_input.forEach((el) => {
@@ -77,15 +87,22 @@ method='POST' -->
 		el_form.addEventListener('submit', async (event) => {
 			event.preventDefault()
 
-			try {
-				if (import.meta.env.PROD) {
+			grecaptcha.ready(async () => {
+				el_submit.setAttribute('disabled', 'true')
+				el_submit.setAttribute('data-loading', 'true')
+
+				try {
+					const token = await grecaptcha.execute(import.meta.env.PUBLIC_GOOGLE_RECAPTCHA_SITE, {
+						action: 'submit'
+					})
+
 					const fetchRecaptcha = await fetch('/api/recaptcha', {
 						method: 'POST',
 						headers: {
 							'Content-Type': 'application/json'
 						},
 						body: JSON.stringify({
-							recaptcha: import.meta.env.PUBLIC_GOOGLE_RECAPTCHA_SITE
+							token
 						})
 					})
 
@@ -94,81 +111,83 @@ method='POST' -->
 					if (!responseRecaptcha.success) {
 						throw new Error('Recaptcha invalid!')
 					}
-				}
 
-				const formData = new FormData(event.target as HTMLFormElement)
+					const formData = new FormData(event.target as HTMLFormElement)
 
-				const payload = Object.fromEntries(formData.entries())
+					const payload = Object.fromEntries(formData.entries())
 
-				const contactParse = ContactSchema.safeParse(payload)
+					const contactParse = ContactSchema.safeParse(payload)
 
-				if (!contactParse.success) {
-					const messageError = contactParse.error.issues
-						.map((error) => {
-							if (error.path.length === 0) {
-								return error.message
-							}
+					if (!contactParse.success) {
+						const messageError = contactParse.error.issues
+							.map((error) => {
+								if (error.path.length === 0) {
+									return error.message
+								}
 
-							return error.path
-								.map((path) => {
-									document.querySelector(`[name="${path}"]`)?.setAttribute('aria-invalid', 'true')
+								return error.path
+									.map((path) => {
+										document.querySelector(`[name="${path}"]`)?.setAttribute('aria-invalid', 'true')
 
-									return `${path}: ${error.message}`
-								})
-								.join(', ')
-						})
-						.join(', ')
+										return `${path}: ${error.message}`
+									})
+									.join(', ')
+							})
+							.join(', ')
 
-					throw new Error(`Error!<br /><pre>${messageError}</pre>`)
-				}
-
-				const fetchFormCarry = await fetch(
-					`https://formcarry.com/s/${import.meta.env.PUBLIC_FORMCARRY_ID}`,
-					{
-						method: 'POST',
-						headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-						body: JSON.stringify(contactParse.data)
+						throw new Error(`Error!<br /><pre>${messageError}</pre>`)
 					}
-				)
 
-				const responseFormCarry = await fetchFormCarry.json()
-
-				if (!fetchFormCarry.ok || responseFormCarry.code !== 200) {
-					throw new Error(responseFormCarry.message || 'Submission Error!')
-				}
-
-				if (el_message) {
-					el_message.setAttribute('data-show', 'true')
-					el_message.setAttribute('data-invalid', 'false')
-					el_message.insertAdjacentHTML(
-						'beforeend',
-						`Success!<br />Thanks for your message! Redirecting...`
+					const fetchFormCarry = await fetch(
+						`https://formcarry.com/s/${import.meta.env.PUBLIC_FORMCARRY_ID}`,
+						{
+							method: 'POST',
+							headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+							body: JSON.stringify(contactParse.data)
+						}
 					)
 
-					setTimeout(() => {
-						el_message.removeAttribute('data-show')
-						el_message.removeAttribute('data-invalid')
-						el_message.innerHTML = ''
-					}, 2000)
-				}
+					const responseFormCarry = await fetchFormCarry.json()
 
-				location.replace(
-					`${location.origin}/thank-you?${new URLSearchParams(contactParse.data).toString()}`
-				)
-			} catch (error) {
-				console.log('error')
-				if (el_message) {
-					el_message.setAttribute('data-show', 'true')
-					el_message.setAttribute('data-invalid', 'true')
-					el_message.insertAdjacentHTML('beforeend', error as string)
+					if (!fetchFormCarry.ok || responseFormCarry.code !== 200) {
+						throw new Error(responseFormCarry.message || 'Submission Error!')
+					}
 
-					setTimeout(() => {
-						el_message.removeAttribute('data-show')
-						el_message.removeAttribute('data-invalid')
-						el_message.innerHTML = ''
-					}, 2000)
+					if (el_message) {
+						el_message.setAttribute('data-show', 'true')
+						el_message.setAttribute('data-invalid', 'false')
+						el_message.insertAdjacentHTML(
+							'beforeend',
+							`Success!<br />Thanks for your message! Redirecting...`
+						)
+
+						setTimeout(() => {
+							el_message.removeAttribute('data-show')
+							el_message.removeAttribute('data-invalid')
+							el_message.innerHTML = ''
+						}, 2000)
+					}
+
+					location.replace(
+						`${location.origin}/thank-you?${new URLSearchParams(contactParse.data).toString()}`
+					)
+				} catch (error) {
+					if (el_message) {
+						el_message.setAttribute('data-show', 'true')
+						el_message.setAttribute('data-invalid', 'true')
+						el_message.insertAdjacentHTML('beforeend', error as string)
+
+						setTimeout(() => {
+							el_message.removeAttribute('data-show')
+							el_message.removeAttribute('data-invalid')
+							el_message.innerHTML = ''
+						}, 2000)
+					}
+
+					el_submit.removeAttribute('disabled')
+					el_submit.removeAttribute('data-loading')
 				}
-			}
+			})
 		})
 	}
 </script>

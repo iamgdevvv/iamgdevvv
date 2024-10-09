@@ -31,6 +31,17 @@
 .cta_submit {
 	@apply text-md;
 	@apply py-3 px-4;
+
+	&[data-loading='true'] {
+		svg {
+			@apply block;
+		}
+	}
+
+	svg {
+		@apply hidden;
+		@apply text-2xl;
+	}
 }
 
 .message {
