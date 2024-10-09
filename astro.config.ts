@@ -71,7 +71,7 @@ export default defineConfig({
 	prefetch: {
 		defaultStrategy: 'viewport'
 	},
-	output: 'server',
+	output: 'hybrid',
 	adapter: vercel({
 		isr: {
 			expiration: 60 * 5

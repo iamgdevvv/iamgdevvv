@@ -14,8 +14,6 @@ const isValid = ContactSchema.safeParse(queryParams)
 if (!isValid.success) {
 	Astro.redirect('/contact')
 }
-
-const data = isValid.data
 ---
 
 <PageLayout meta={{ title: 'Thank you', index: false }}>
@@ -25,32 +23,12 @@ const data = isValid.data
 		</Button>
 
 		<div class='max-w-600px mt-5'>
-			<h1>
-				Thank you {data?.Name} ({data?.Organization})
-			</h1>
+			<h1>Thank you</h1>
 			<p>
-				Thank you for your asking. The information you provided in the data, including your email ({
-					data?.Email
-				}) and purpose ({data?.Purposes}), is very helpful for us to understand your needs. We will
-				follow up on your message that we have received.
+				Thank you for your asking. The information you provided in the data, including your email
+				and purpose, is very helpful for us to understand your needs. We will follow up on your
+				message that we have received.
 			</p>
 		</div>
 	</div>
 </PageLayout>
-
-<script>
-	import { ContactSchema, type Contact } from '@/utils'
-
-	const queryParams = Object.fromEntries(new URLSearchParams(location.search).entries()) as Contact
-
-	const isValid = ContactSchema.safeParse(queryParams)
-
-	if (!isValid.success) {
-		location.replace('/contact')
-	}
-
-	if (typeof window !== 'undefined') {
-		// @ts-ignore
-		window.data = isValid.data
-	}
-</script>
