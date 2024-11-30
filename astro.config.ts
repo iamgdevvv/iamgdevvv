@@ -2,7 +2,7 @@ import { defineConfig, passthroughImageService } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import UnoCSS from '@unocss/astro'
 import sitemap from '@astrojs/sitemap'
-import remarkUnwrapImages from 'remark-unwrap-images'
+import rehypeUnwrapImages from 'rehype-unwrap-images'
 import rehypeExternalLinks from 'rehype-external-links'
 import expressiveCode from 'astro-expressive-code'
 import icon from 'astro-icon'
@@ -23,7 +23,7 @@ export default defineConfig({
 		UnoCSS({ injectReset: true }),
 		sitemap({
 			changefreq: 'daily',
-			priority: 0.7,
+			priority: 0.7
 		}),
 		mdx(),
 		icon({
@@ -52,8 +52,8 @@ export default defineConfig({
 		})
 	],
 	markdown: {
-		remarkPlugins: [remarkUnwrapImages],
 		rehypePlugins: [
+			[rehypeUnwrapImages, {}],
 			[
 				rehypeExternalLinks,
 				{

@@ -1,7 +1,7 @@
 ---
 organization: 'Iamgdev'
 link: 'https://www.codester.com/items/50856/kasep-wplogin-wordpress-login'
-title: 'Kasep WPAdmin - Responsive & Prettiest Wordpress Login'
+title: 'Kasep WPLogin - Responsive & Prettiest Wordpress Login'
 publishDate: '04 September 2024'
 description: 'Beautify and optimizes your WordPress Login. Say goodbye to unnecessary options and hello to a user-friendly experience'
 coverImage:

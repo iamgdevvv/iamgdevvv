@@ -3,7 +3,7 @@ organization: 'Iamgdev'
 link: 'https://iqbal-webform.vercel.app'
 title: 'Bentang Benda Rasullulah Riau Web Form'
 publishDate: '24 July 2024'
-description: 'Mieapinarko is a mock website dedicated to listing restaurant franchises'
+description: 'This website using for information and registration for the event showcasing the Relics of the Prophet Muhammad (SAW) in Riau'
 stacks: ['react', 'tailwindcss']
 ---
 
@@ -13,8 +13,8 @@ This website using for information and registration for the event showcasing the
 
 ## Stacks
 
-- [Next.js](https://nextjs.org)
-- [Mantine](https://mantine.dev)
+- [Vite](https://vitejs.dev)
+- [React](https://react.dev)
 - [Tailwind CSS](https://tailwindcss.com)
 - [Typescript](https://www.typescriptlang.org)
 
