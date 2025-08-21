@@ -28,7 +28,7 @@
 			"@components/*": ["src/libs/components/*"],
 			"@forms/*": ["src/libs/forms/*"],
 			"@layouts/*": ["src/libs/layouts/*"],
-			"@templates/*": ["src/libs/templates/*"],
+			"@templates/*": ["src/libs/templates/*"]
 		},
 		"plugins": [
 			{
@@ -36,5 +36,6 @@
 			}
 		]
 	},
+	"include": [".astro/types.d.ts", "**/*"],
 	"exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]
 }

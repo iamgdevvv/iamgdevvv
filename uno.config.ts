@@ -1,15 +1,15 @@
-import { defineConfig, presetUno, presetTypography, transformerDirectives, transformerVariantGroup, transformerCompileClass } from 'unocss'
+import {
+	defineConfig,
+	presetTypography,
+	transformerDirectives,
+	transformerVariantGroup,
+	transformerCompileClass
+} from 'unocss'
+import { presetWind3 } from '@unocss/preset-wind3'
 
 export default defineConfig({
-	transformers: [
-		transformerDirectives(),
-		transformerVariantGroup(),
-		transformerCompileClass()
-	],
-	presets: [
-		presetUno(),
-		presetTypography()
-	  ],
+	transformers: [transformerDirectives(), transformerVariantGroup(), transformerCompileClass()],
+	presets: [presetWind3(), presetTypography()],
 	theme: {
 		container: {
 			center: true,
@@ -65,7 +65,7 @@ export default defineConfig({
 			sm: '600px',
 			md: '900px',
 			lg: '1280px',
-			xl: '1600px',
-		},
+			xl: '1600px'
+		}
 	}
 })

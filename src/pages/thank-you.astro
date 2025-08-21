@@ -12,7 +12,7 @@ const queryParams = Object.fromEntries(Astro.url.searchParams.entries()) as Cont
 const isValid = ContactSchema.safeParse(queryParams)
 
 if (!isValid.success) {
-	Astro.redirect('/contact')
+	return Astro.redirect('/contact')
 }
 ---
 

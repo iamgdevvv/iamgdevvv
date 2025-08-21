@@ -20,7 +20,9 @@ export function getAllStacks(entries: CollectionEntry<'project'>[] | CollectionE
 }
 
 /** Note: This function doesn't filter draft entries, pass it the result of getAllProjects above to do so. */
-export function getUniqueStacks(entries: CollectionEntry<'project'>[] | CollectionEntry<'project'>[]) {
+export function getUniqueStacks(
+	entries: CollectionEntry<'project'>[] | CollectionEntry<'project'>[]
+) {
 	return [...new Set(getAllStacks(entries))]
 }
 
