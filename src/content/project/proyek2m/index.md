@@ -2,7 +2,7 @@
 organization: 'Proyek2M'
 link: 'https://proyek2m.com/'
 title: 'Proyek2M '
-publishDate: '17 Agustus 2025'
+publishDate: '17 August 2025'
 description: 'Build a Professional Website 100% Free'
 coverImage:
   src: './logo-proyek2m.jpg'
