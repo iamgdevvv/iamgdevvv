@@ -1,0 +1,44 @@
+@reference '../global.css';
+
+.inner {
+	@apply items-stretch;
+
+	&[data-align='center'] {
+		.heading,
+		.certification {
+			@apply min-w-full;
+		}
+
+		.heading {
+			@apply text-center;
+			@apply mb-sm;
+		}
+	}
+
+	&[data-align='right'] {
+		.heading {
+			@apply text-right;
+		}
+
+		.certification {
+			@apply -order-1;
+		}
+	}
+
+	.heading {
+		@apply w-full md:w-1/3 mt-0 mb-4 md:mb-0;
+
+		[data-slot='rich-text'] {
+			@apply sticky top-4;
+		}
+	}
+
+	.certification {
+		@apply w-full md:w-2/3;
+	}
+}
+
+.listing {
+	@apply grid grid-cols-1 gap-3;
+	@apply md:grid-cols-[repeat(var(--column),minmax(0,1fr))] md:gap-[var(--gap)] md:gap-y-[var(--gap-y)];
+}

@@ -1,0 +1,17 @@
+@reference '../global.css';
+
+.certificate {
+	@apply relative overflow-hidden;
+	@apply cursor-pointer;
+	@apply p-1 md:p-2 border border-gray-400;
+
+	iframe,
+	img {
+		@apply rounded-lg;
+	}
+}
+
+.full_media {
+	@apply size-full max-w-full max-h-full;
+	@apply object-contain object-center;
+}

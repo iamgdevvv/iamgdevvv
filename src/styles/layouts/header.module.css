@@ -1,0 +1,70 @@
+@reference '../global.css';
+
+.header {
+	@apply relative;
+	@apply w-full;
+	@apply flex flex-col;
+}
+
+.inner {
+	@apply py-4;
+	@apply flex items-center flex-wrap;
+}
+
+.branding {
+	@apply w-auto mr-auto;
+}
+
+.navigation_desktop {
+	@apply w-auto mr-4;
+
+	.menu {
+		@apply flex items-center justify-center;
+		@apply font-medium;
+		@apply gap-4;
+	}
+
+	a:hover,
+	a[aria-expanded='true'] {
+		@apply text-primary;
+	}
+}
+
+.logo {
+	@apply size-[34px] md:size-[48px];
+	@apply flex items-start;
+
+	img {
+		@apply size-full;
+		@apply object-contain;
+	}
+
+	[class*='mantine-Avatar-root'] {
+		@apply size-full;
+	}
+
+	[class*='mantine-Avatar-placeholder'] {
+		@apply text-primary;
+	}
+}
+
+.menu_action {
+	@apply ml-2;
+}
+
+.navigation_mobile {
+	@apply absolute top-[calc(100%+8px)] left-4 z-50;
+	@apply w-[calc(100%-32px)] pt-4 pb-6;
+	@apply rounded-lg bg-white dark:bg-gray-900 shadow-xl shadow-gray-100;
+	@apply overflow-auto;
+
+	.menu {
+		@apply flex flex-col;
+		@apply gap-4;
+		@apply font-semibold;
+
+		& + .actions_mobile {
+			@apply mt-4;
+		}
+	}
+}

@@ -1,0 +1,39 @@
+@reference '../global.css';
+
+.inner {
+	@apply items-stretch;
+
+	&[data-align='center'] {
+		.heading,
+		.content {
+			@apply min-w-full;
+		}
+
+		.heading {
+			@apply text-center;
+			@apply mb-sm;
+		}
+	}
+
+	&[data-align='right'] {
+		.heading {
+			@apply text-right;
+		}
+
+		.content {
+			@apply -order-1;
+		}
+	}
+
+	.heading {
+		@apply w-full md:w-1/3 mt-0 mb-4 md:mb-0;
+
+		[data-slot='rich-text'] {
+			@apply sticky top-4;
+		}
+	}
+
+	.content {
+		@apply w-full md:w-2/3;
+	}
+}

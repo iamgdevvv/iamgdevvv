@@ -1,0 +1,63 @@
+import type { CollectionConfig } from 'payload'
+
+import { afterReadHookLink } from '$payload-fields/link'
+import { metafield } from '$payload-fields/metadata'
+import {
+	authenticated,
+	authenticatedActionRole,
+	authenticatedOrPublished,
+} from '$payload-libs/access-rules'
+import { revalidateChange, revalidateDelete } from '$payload-libs/hooks/revalidate'
+import { generatePreviewPath } from '$payload-libs/preview-path'
+import { collectionLink } from '$utils/common'
+
+export const PostCategories: CollectionConfig = {
+	slug: 'postCategories',
+	dbName: 'pocc',
+	defaultPopulate: {
+		id: true,
+		title: true,
+		slug: true,
+		link: true,
+		excerpt: true,
+		featuredImage: true,
+		publishedAt: true,
+		createdAt: true,
+		updatedAt: true,
+	},
+	admin: {
+		useAsTitle: 'title',
+		defaultColumns: ['title', 'slug', '_status', 'updatedAt', 'author'],
+		group: 'Blog',
+		livePreview: {
+			url: ({ data, req }) =>
+				generatePreviewPath({
+					path: collectionLink(data?.link, '/'),
+					req,
+				}),
+		},
+		preview: (data, { req }) =>
+			generatePreviewPath({
+				path: collectionLink(data?.link, '/'),
+				req,
+			}),
+	},
+	versions: {
+		drafts: {
+			autosave: false,
+		},
+		maxPerDoc: 10,
+	},
+	access: {
+		create: authenticated,
+		read: authenticatedOrPublished,
+		update: authenticatedActionRole,
+		delete: authenticatedActionRole,
+	},
+	hooks: {
+		afterRead: [afterReadHookLink],
+		afterChange: [revalidateChange],
+		afterDelete: [revalidateDelete],
+	},
+	fields: [...metafield()],
+}

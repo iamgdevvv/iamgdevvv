@@ -1,0 +1,15 @@
+@reference '../global.css';
+
+.card {
+	@apply flex items-start;
+
+	.icon {
+		@apply size-10;
+		@apply object-contain;
+	}
+
+	.content {
+		@apply w-[calc(100%-40px)];
+		@apply pl-4;
+	}
+}

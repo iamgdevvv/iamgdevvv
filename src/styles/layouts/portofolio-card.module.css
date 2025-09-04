@@ -1,0 +1,12 @@
+@reference '../global.css';
+
+.gallery_item {
+	@apply relative overflow-hidden;
+	@apply cursor-pointer;
+	@apply border border-gray-400 dark:border-gray-700;
+}
+
+.full_media {
+	@apply size-full max-w-full max-h-full;
+	@apply object-contain object-center;
+}

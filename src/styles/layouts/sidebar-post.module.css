@@ -1,0 +1,16 @@
+@reference '../global.css';
+
+.sidebar_inner {
+	@apply lg:sticky top-4;
+}
+
+.share {
+	@media all and (max-width: theme(--breakpoint-lg)) {
+		@apply absolute top-0 right-0;
+		@apply h-full;
+
+		.share_inner {
+			@apply sticky top-20 sm:top-32 z-10;
+		}
+	}
+}

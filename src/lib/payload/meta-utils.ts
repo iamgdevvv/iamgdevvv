@@ -1,0 +1,65 @@
+import type { Metadata } from 'next'
+
+import type { Page, Portofolio, Post, PostCategory, Site } from '$payload-types'
+import { assetUrl, collectionLink } from '$utils/common'
+
+export async function generateMeta(
+	doc: Pick<
+		Post | PostCategory | Page | Portofolio,
+		'meta' | 'excerpt' | 'featuredImage' | 'title' | 'link'
+	>,
+	site: Site | null,
+): Promise<Metadata> {
+	const siteTitle = site?.title || 'PortoPro'
+
+	let ogImage = undefined
+	let title = siteTitle
+	const description = doc?.meta?.description || doc?.excerpt || undefined
+	const favicon = assetUrl(site?.favicon) || '/favicon.png'
+
+	if (doc?.meta?.image) {
+		ogImage = assetUrl(doc.meta.image)
+	}
+
+	if (doc?.featuredImage && !ogImage) {
+		ogImage = assetUrl(doc.featuredImage)
+	}
+
+	if (favicon && !ogImage) {
+		ogImage = favicon
+	}
+
+	if (doc?.meta?.title) {
+		title = doc.meta.title
+	} else if (doc?.title) {
+		title = `${doc.title} | ${siteTitle}`
+	}
+
+	return {
+		title,
+		description,
+		robots: !site?.sitePublicly ? 'noindex, nofollow' : doc.meta?.robots || 'index, follow',
+		keywords: doc.meta?.keywords,
+		icons: favicon,
+		openGraph: {
+			description,
+			images: ogImage,
+			title,
+			type: 'website',
+			url: collectionLink(doc.link),
+		},
+		twitter: {
+			site: siteTitle,
+			description,
+			title,
+			images: ogImage,
+		},
+		pinterest: {
+			richPin: true,
+		},
+		applicationName: siteTitle,
+		alternates: {
+			canonical: process.env.NEXT_PUBLIC_SITE_URL + collectionLink(doc.link),
+		},
+	}
+}

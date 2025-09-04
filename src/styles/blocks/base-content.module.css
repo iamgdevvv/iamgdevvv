@@ -1,0 +1,15 @@
+@reference '../global.css';
+
+.base_content {
+	@apply flex flex-col items-start;
+
+	&[data-align='right'] {
+		@apply items-end;
+		@apply text-right;
+	}
+
+	&[data-align='center'] {
+		@apply items-center;
+		@apply text-center;
+	}
+}
