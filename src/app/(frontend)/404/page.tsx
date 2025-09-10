@@ -1,6 +1,6 @@
 import { slug404 } from '$modules/vars'
 import { generateMeta } from '$payload-libs/meta-utils'
-import { getAuthUser, getProfileGlobal, getSiteGlobal } from '$payload-libs/server/repos'
+import { getProfileGlobal, getSiteGlobal } from '$payload-libs/server/repos'
 import { seoSchema } from '$seo/index'
 import { pageLoader } from '$server-functions/loader'
 import SiteTemplate from '$templates/site'
@@ -12,11 +12,7 @@ export default async function notFoundPage() {
 		return null
 	}
 
-	const [authUser, profileConfig, siteConfig] = await Promise.all([
-		getAuthUser(),
-		getProfileGlobal(),
-		getSiteGlobal(),
-	])
+	const [profileConfig, siteConfig] = await Promise.all([getProfileGlobal(), getSiteGlobal()])
 
 	const metadata = await generateMeta(page, siteConfig)
 
@@ -39,7 +35,6 @@ export default async function notFoundPage() {
 				}}
 			/>
 			<SiteTemplate
-				authUser={authUser}
 				data={page}
 				site={siteConfig}
 				profile={profileConfig}

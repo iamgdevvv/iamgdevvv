@@ -1,4 +1,4 @@
-import type { Profile, Site, User } from '$payload-types'
+import type { Profile, Site } from '$payload-types'
 
 import AdminBar from '$layouts/AdminBar'
 import Particles from '$layouts/Particles'
@@ -11,7 +11,6 @@ import LivePreviewListener from '$templates/preview'
 import type { Queried } from '$type'
 
 export type SiteTemplateProps = {
-	authUser: User | null
 	profile: Profile | null
 	site: Site | null
 	draft?: boolean
@@ -23,7 +22,6 @@ export default function SiteTemplate({ draft, ...props }: SiteTemplateProps) {
 			<AdminBar
 				data={props.data}
 				collection={props.collection}
-				authUser={props.authUser}
 			/>
 			<Particles />
 			{draft ? <LivePreviewListener /> : null}

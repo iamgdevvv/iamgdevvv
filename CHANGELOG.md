@@ -6,6 +6,15 @@ dan versi mengikuti [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.1.0] - 2025-09-10
+
+### Chore
+
+- change adminbar strategy to use getAuthUser with fetch inside component
+- set noindex,nofollow robots for draft status
+- disable link prefetch by default
+- adjust width/height for some image components
+
 ## [1.0.0] - 2025-08-17
 
 ### Added

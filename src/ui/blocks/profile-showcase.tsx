@@ -137,12 +137,16 @@ function ProfileShowcaseInner({
 					{profile?.avatar ? (
 						<Image
 							src={profile.avatar}
+							width={140}
+							height={140}
 							className={styles.basic_photo}
 						/>
 					) : null}
 					{profile?.avatarAlt ? (
 						<Image
 							src={profile.avatarAlt}
+							width={140}
+							height={140}
 							className={styles.art_photo}
 						/>
 					) : null}

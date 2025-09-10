@@ -64,8 +64,8 @@ export default function MediaImage({ block, imageProps, ...props }: MediaImagePr
 				>
 					<Image
 						{...imageProps}
-						width={imageProps?.width || 1170}
-						height={imageProps?.height || 1170}
+						width={imageProps?.width || 860}
+						height={imageProps?.height || 860}
 						src={src}
 						className={objectFitCls(objectFit)}
 						style={{
@@ -80,8 +80,8 @@ export default function MediaImage({ block, imageProps, ...props }: MediaImagePr
 					<Image
 						{...imageProps}
 						src={src}
-						width={imageProps?.width || 1170}
-						height={imageProps?.height || 1170}
+						width={imageProps?.width || 860}
+						height={imageProps?.height || 860}
 						style={{
 							...imageProps?.style,
 							borderRadius: radiusVars(rounded),
@@ -120,8 +120,8 @@ export default function MediaImage({ block, imageProps, ...props }: MediaImagePr
 					<Image
 						{...imageProps}
 						src={src}
-						width={imageProps?.width || 1170}
-						height={imageProps?.height || 1170}
+						width={imageProps?.width || 860}
+						height={imageProps?.height || 860}
 						style={{
 							borderRadius: radiusVars(rounded),
 						}}

@@ -9,7 +9,7 @@ export const personSchema = (profile: Profile): Person => {
 		name: profile.name || 'Unknown',
 		description: profile.slogan || undefined,
 		url: process.env.NEXT_PUBLIC_SITE_URL,
-		image: assetUrl(profile.avatar || profile.avatar_alt),
+		image: assetUrl(profile.avatar || profile.avatarAlt),
 		// jobTitle: profile.positions
 		// 	?.filter((position) => typeof position === 'object')
 		// 	.map((position) => position.title)

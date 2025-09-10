@@ -28,7 +28,7 @@ export default function PostTemplate({ data, site, profile }: Props) {
 				<FadeContainer className="container">
 					<Image
 						src={data.featuredImage}
-						width={1170}
+						width={860}
 						height={660}
 						className={styles.featuredImage}
 					/>

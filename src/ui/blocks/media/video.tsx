@@ -58,8 +58,8 @@ export default function MediaVideo({ block, ...props }: MediaVideoProps) {
 			>
 				<Image
 					src={assetUrl(block.videoPoster)}
-					width={1170}
-					height={1170}
+					width={860}
+					height={860}
 					className={cx('cursor-pointer', objectFitCls(objectFit))}
 					style={{
 						borderRadius: radiusVars(rounded),
