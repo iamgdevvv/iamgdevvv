@@ -4,6 +4,7 @@ import dayjs from 'dayjs'
 import { useId, useMemo, type ComponentProps, type HTMLAttributes } from 'react'
 
 import Link from '$components/Link'
+import { useThemeColor } from '$hooks/style'
 import type { Portofolio } from '$payload-types'
 import { collectionLink } from '$utils/common'
 
@@ -14,6 +15,7 @@ export type PortofolioCardProps = {
 
 export function PortofolioCard({ data, ...props }: PortofolioCardProps) {
 	const compId = useId()
+	const { themeColor } = useThemeColor()
 
 	const dateTime = useMemo(
 		() => dayjs(data.launchDate || data.createdAt),
@@ -23,8 +25,6 @@ export function PortofolioCard({ data, ...props }: PortofolioCardProps) {
 	return (
 		<Stack
 			{...props}
-			component={Link}
-			href={collectionLink(data.link)}
 			gap={0}
 			mt={{
 				base: 'md',
@@ -35,7 +35,7 @@ export function PortofolioCard({ data, ...props }: PortofolioCardProps) {
 				order={3}
 				size="h6"
 			>
-				{data.title}
+				<Link href={collectionLink(data.link)}>{data.title}</Link>
 			</Title>
 			<Text
 				component="time"
@@ -59,7 +59,7 @@ export function PortofolioCard({ data, ...props }: PortofolioCardProps) {
 							<Badge
 								key={`${compId}-skill-${index}`}
 								variant="light"
-								color="dark"
+								color={themeColor === 'light' ? 'dark' : 'gray'}
 							>
 								{skill.title}
 							</Badge>

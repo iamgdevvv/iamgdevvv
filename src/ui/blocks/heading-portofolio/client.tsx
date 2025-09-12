@@ -1,14 +1,11 @@
 'use client'
-import { Button, Group, Text, Title } from '@mantine/core'
-import { LucideArrowRight } from 'lucide-react'
+import { Group, Text, Title } from '@mantine/core'
 import { useId, useMemo } from 'react'
 
 import { FadeContainer, FadeDiv } from '$components/Fade'
-import Link from '$components/Link'
 import Richtext from '$components/Richtext'
 import { StyleGap } from '$components/Style'
 import { PortofolioCard } from '$layouts/Portofolio'
-import { slugPortofolio } from '$modules/vars'
 import type { Portofolio } from '$payload-types'
 import { slugify } from '$utils/common'
 import { type HeadingPortofolioProps } from './server'
@@ -116,20 +113,6 @@ function HeadingPortofolioInner({ block, portofolios, ...props }: HeadingPortofo
 						</Text>
 					)}
 				</div>
-			</Group>
-
-			<Group
-				justify="flex-end"
-				mt="xl"
-			>
-				<Button
-					component={Link}
-					href={`/${slugPortofolio}`}
-					variant="subtle"
-					rightSection={<LucideArrowRight size={16} />}
-				>
-					Lihat Semua
-				</Button>
 			</Group>
 
 			<StyleGap

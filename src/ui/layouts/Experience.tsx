@@ -92,7 +92,7 @@ export function ExperienceCard({ data, ...props }: ExperienceCardProps) {
 								<Badge
 									key={`${compId}-skill-${index}`}
 									variant="light"
-									color="dark"
+									color={themeColor === 'light' ? 'dark' : 'gray'}
 								>
 									{skill.title}
 								</Badge>

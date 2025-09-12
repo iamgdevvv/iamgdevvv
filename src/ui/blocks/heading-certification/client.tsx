@@ -1,14 +1,11 @@
 'use client'
-import { Button, Group, Text, Title } from '@mantine/core'
-import { LucideArrowRight } from 'lucide-react'
+import { Group, Text, Title } from '@mantine/core'
 import { useId, useMemo } from 'react'
 
 import { FadeContainer, FadeDiv } from '$components/Fade'
-import Link from '$components/Link'
 import Richtext from '$components/Richtext'
 import { StyleGap } from '$components/Style'
 import { CertificationCard } from '$layouts/Certification'
-import { slugCertification } from '$modules/vars'
 import type { Certification } from '$payload-types'
 import { slugify } from '$utils/common'
 import { type HeadingCertificationProps } from './server'
@@ -120,20 +117,6 @@ function HeadingCertificationInner({
 						</Text>
 					)}
 				</div>
-			</Group>
-
-			<Group
-				justify="flex-end"
-				mt="xl"
-			>
-				<Button
-					component={Link}
-					href={`/${slugCertification}`}
-					variant="subtle"
-					rightSection={<LucideArrowRight size={16} />}
-				>
-					Lihat Semua
-				</Button>
 			</Group>
 
 			<StyleGap

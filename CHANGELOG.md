@@ -6,6 +6,14 @@ dan versi mengikuti [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.1.1] - 2025-09-12
+
+### Chore
+
+- remove unnecessary vars
+- remove button component
+- adjust color in dark theme
+
 ## [1.1.0] - 2025-09-10
 
 ### Chore

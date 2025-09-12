@@ -1,14 +1,11 @@
 'use client'
-import { Button, Group, Text, Title } from '@mantine/core'
-import { LucideArrowRight } from 'lucide-react'
+import { Group, Text, Title } from '@mantine/core'
 import { useId, useMemo } from 'react'
 
 import { FadeContainer, FadeDiv } from '$components/Fade'
-import Link from '$components/Link'
 import Richtext from '$components/Richtext'
 import { StyleGap } from '$components/Style'
 import { ToolList } from '$layouts/Tool'
-import { slugTool } from '$modules/vars'
 import type { Tool } from '$payload-types'
 import { slugify } from '$utils/common'
 import { type HeadingToolProps } from './server'
@@ -116,20 +113,6 @@ function HeadingToolInner({ block, tools, ...props }: HeadingToolClientProps) {
 						</Text>
 					)}
 				</div>
-			</Group>
-
-			<Group
-				justify="flex-end"
-				mt="xl"
-			>
-				<Button
-					component={Link}
-					href={`/${slugTool}`}
-					variant="subtle"
-					rightSection={<LucideArrowRight size={16} />}
-				>
-					Lihat Semua
-				</Button>
 			</Group>
 
 			<StyleGap
