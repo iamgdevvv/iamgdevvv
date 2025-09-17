@@ -229,7 +229,7 @@ function ListingPostInner({
 					c="dimmed"
 					ta="center"
 				>
-					Blog tidak ditemukan.
+					Blog not found.
 				</Text>
 			) : null}
 
@@ -608,7 +608,7 @@ function PaginationListing({
 							}
 						}}
 					>
-						Muat lebih banyak
+						Load More
 					</Button>
 				) : loading ? (
 					<Button

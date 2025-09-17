@@ -237,7 +237,7 @@ function ListingPortofolioInner({
 					c="dimmed"
 					ta="center"
 				>
-					Portofolio tidak ditemukan.
+					Portofolio not found.
 				</Text>
 			) : null}
 
@@ -611,7 +611,7 @@ function PaginationListing({
 							}
 						}}
 					>
-						Muat lebih banyak
+						Load More
 					</Button>
 				) : loading ? (
 					<Button

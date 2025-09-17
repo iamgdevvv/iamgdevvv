@@ -152,7 +152,10 @@ function ProfileShowcaseInner({
 					) : null}
 				</div>
 				<Title mt={0}>{profile?.name}</Title>
-				<Group gap="lg">
+				<Group
+					gap="lg"
+					justify="center"
+				>
 					{profile?.title ? (
 						<Button
 							variant="transparent"

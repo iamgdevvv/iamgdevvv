@@ -230,7 +230,7 @@ function ListingExperienceInner({
 					c="dimmed"
 					ta="center"
 				>
-					Experience tidak ditemukan.
+					Experience not found.
 				</Text>
 			) : null}
 
@@ -604,7 +604,7 @@ function PaginationListing({
 							}
 						}}
 					>
-						Muat lebih banyak
+						Load More
 					</Button>
 				) : loading ? (
 					<Button

@@ -113,7 +113,7 @@ function HeadingCertificationInner({
 							c="dimmed"
 							ta="center"
 						>
-							Certification tidak ditemukan.
+							Certification not found.
 						</Text>
 					)}
 				</div>

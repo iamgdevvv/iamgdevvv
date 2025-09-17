@@ -109,7 +109,7 @@ function HeadingToolInner({ block, tools, ...props }: HeadingToolClientProps) {
 							c="dimmed"
 							ta="center"
 						>
-							Tool tidak ditemukan.
+							Tool not found.
 						</Text>
 					)}
 				</div>

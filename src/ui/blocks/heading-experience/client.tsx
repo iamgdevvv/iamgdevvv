@@ -109,7 +109,7 @@ function HeadingExperienceInner({ block, experiences, ...props }: HeadingExperie
 							c="dimmed"
 							ta="center"
 						>
-							Experience tidak ditemukan.
+							Experience not found.
 						</Text>
 					)}
 				</div>

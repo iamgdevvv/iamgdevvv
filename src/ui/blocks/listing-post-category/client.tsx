@@ -165,7 +165,7 @@ function ListingPostCategoryInner({
 					c="dimmed"
 					ta="center"
 				>
-					Blog kategori tidak ditemukan.
+					Blog kategori not found.
 				</Text>
 			) : null}
 
@@ -426,7 +426,7 @@ function PaginationListing({
 							}
 						}}
 					>
-						Muat lebih banyak
+						Load More
 					</Button>
 				) : loading ? (
 					<Button

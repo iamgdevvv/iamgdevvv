@@ -109,7 +109,7 @@ function HeadingPortofolioInner({ block, portofolios, ...props }: HeadingPortofo
 							c="dimmed"
 							ta="center"
 						>
-							Portofolio tidak ditemukan.
+							Portofolio not found.
 						</Text>
 					)}
 				</div>

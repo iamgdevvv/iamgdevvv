@@ -109,7 +109,7 @@ function HeadingPostInner({ block, posts, ...props }: HeadingPostClientProps) {
 							c="dimmed"
 							ta="center"
 						>
-							Post tidak ditemukan.
+							Post not found.
 						</Text>
 					)}
 				</div>

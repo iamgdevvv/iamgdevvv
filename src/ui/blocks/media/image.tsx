@@ -106,7 +106,7 @@ export default function MediaImage({ block, imageProps, ...props }: MediaImagePr
 
 			{block?.action === 'lightbox' ? (
 				<Drawer
-					title="Preview Gambar Fullscreen"
+					title="Preview Image Fullscreen"
 					classNames={{
 						title: styles.drawer_title,
 						root: styles.drawer_root,

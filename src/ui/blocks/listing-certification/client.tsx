@@ -232,7 +232,7 @@ function ListingCertificationInner({
 					c="dimmed"
 					ta="center"
 				>
-					Certification tidak ditemukan.
+					Certification not found.
 				</Text>
 			) : null}
 
@@ -606,7 +606,7 @@ function PaginationListing({
 							}
 						}}
 					>
-						Muat lebih banyak
+						Load More
 					</Button>
 				) : loading ? (
 					<Button

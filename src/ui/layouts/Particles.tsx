@@ -1,14 +1,23 @@
 'use client'
 import { useShallowEffect } from '@mantine/hooks'
-import Tsparticles, { initParticlesEngine } from '@tsparticles/react'
+import Tsparticles, { initParticlesEngine, type IParticlesProps } from '@tsparticles/react'
 import { loadSlim } from '@tsparticles/slim'
 import { useState } from 'react'
 
 import { useThemeColor } from '$hooks/style'
+import type { SiteTemplateProps } from '$templates/site'
 
-export default function Particles() {
+export type ParticlesProps = Pick<SiteTemplateProps, 'site'> & IParticlesProps
+
+export default function Particles({ site, ...props }: ParticlesProps) {
 	const [init, setInit] = useState(false)
-	const { themeColor } = useThemeColor()
+	const { themeColor, setThemeColor } = useThemeColor()
+
+	useShallowEffect(() => {
+		if (typeof site?.darkTheme === 'boolean') {
+			setThemeColor(site.darkTheme ? 'dark' : 'light')
+		}
+	}, [site])
 
 	useShallowEffect(() => {
 		initParticlesEngine(async (engine) => {
@@ -24,6 +33,7 @@ export default function Particles() {
 
 	return (
 		<Tsparticles
+			{...props}
 			options={{
 				fpsLimit: 244,
 				interactivity: {

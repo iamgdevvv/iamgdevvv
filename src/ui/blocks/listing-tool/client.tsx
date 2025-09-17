@@ -143,7 +143,7 @@ function ListingToolInner({ block, initialResult, ...props }: ListingToolClientP
 					c="dimmed"
 					ta="center"
 				>
-					Tool tidak ditemukan.
+					Tool not found.
 				</Text>
 			) : null}
 
@@ -369,7 +369,7 @@ function PaginationListing({
 							}
 						}}
 					>
-						Muat lebih banyak
+						Load More
 					</Button>
 				) : loading ? (
 					<Button
