@@ -23,7 +23,7 @@ export default function SiteTemplate({ draft, ...props }: SiteTemplateProps) {
 				data={props.data}
 				collection={props.collection}
 			/>
-			<Particles site={props.site} />
+			<Particles />
 			{draft ? <LivePreviewListener /> : null}
 			{props.collection === 'posts' ? (
 				<PostTemplate {...props} />

@@ -5,11 +5,8 @@ import { loadSlim } from '@tsparticles/slim'
 import { useState } from 'react'
 
 import { useThemeColor } from '$hooks/style'
-import type { SiteTemplateProps } from '$templates/site'
 
-export type ParticlesProps = Pick<SiteTemplateProps, 'site'> & IParticlesProps
-
-export default function Particles({ site, ...props }: ParticlesProps) {
+export default function Particles(props: IParticlesProps) {
 	const [init, setInit] = useState(false)
 	const { themeColor } = useThemeColor()
 
