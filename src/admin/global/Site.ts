@@ -29,11 +29,6 @@ export const SiteConfig: GlobalConfig = {
 							type: 'upload',
 							relationTo: 'asset',
 						},
-						{
-							name: 'darkTheme',
-							type: 'checkbox',
-							defaultValue: false,
-						},
 					],
 				},
 				{

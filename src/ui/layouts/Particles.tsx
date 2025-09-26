@@ -11,13 +11,7 @@ export type ParticlesProps = Pick<SiteTemplateProps, 'site'> & IParticlesProps
 
 export default function Particles({ site, ...props }: ParticlesProps) {
 	const [init, setInit] = useState(false)
-	const { themeColor, setThemeColor } = useThemeColor()
-
-	useShallowEffect(() => {
-		if (typeof site?.darkTheme === 'boolean') {
-			setThemeColor(site.darkTheme ? 'dark' : 'light')
-		}
-	}, [site])
+	const { themeColor } = useThemeColor()
 
 	useShallowEffect(() => {
 		initParticlesEngine(async (engine) => {

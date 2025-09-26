@@ -173,7 +173,7 @@ export interface Button {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -609,7 +609,7 @@ export interface CardForm {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -815,7 +815,7 @@ export interface Form {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -852,7 +852,7 @@ export interface Form {
           root: {
             type: string;
             children: {
-              type: string;
+              type: any;
               version: number;
               [k: string]: unknown;
             }[];
@@ -937,7 +937,7 @@ export interface Actions {
           root: {
             type: string;
             children: {
-              type: string;
+              type: any;
               version: number;
               [k: string]: unknown;
             }[];
@@ -1161,7 +1161,7 @@ export interface BaseContent {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -1193,7 +1193,7 @@ export interface CollapsibleTab {
           root: {
             type: string;
             children: {
-              type: string;
+              type: any;
               version: number;
               [k: string]: unknown;
             }[];
@@ -1208,7 +1208,7 @@ export interface CollapsibleTab {
           root: {
             type: string;
             children: {
-              type: string;
+              type: any;
               version: number;
               [k: string]: unknown;
             }[];
@@ -1321,7 +1321,7 @@ export interface ContentMedia {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -1338,7 +1338,7 @@ export interface ContentMedia {
           root: {
             type: string;
             children: {
-              type: string;
+              type: any;
               version: number;
               [k: string]: unknown;
             }[];
@@ -1576,7 +1576,7 @@ export interface HeadingCertification {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -1629,7 +1629,7 @@ export interface Certification {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -1666,7 +1666,7 @@ export interface HeadingContent {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -1681,7 +1681,7 @@ export interface HeadingContent {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -1706,7 +1706,7 @@ export interface HeadingExperience {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -1760,7 +1760,7 @@ export interface Experience {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -1784,7 +1784,7 @@ export interface HeadingPortofolio {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -1896,7 +1896,7 @@ export interface HeadingPost {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -1996,7 +1996,7 @@ export interface HeadingTool {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -2926,7 +2926,6 @@ export interface Site {
   id: number;
   title?: string | null;
   favicon?: (number | null) | Asset;
-  darkTheme?: boolean | null;
   logo?: (number | null) | Asset;
   navigation?:
     | {
@@ -2946,7 +2945,7 @@ export interface Site {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -3015,7 +3014,6 @@ export interface ProfileSelect<T extends boolean = true> {
 export interface SiteSelect<T extends boolean = true> {
   title?: T;
   favicon?: T;
-  darkTheme?: T;
   logo?: T;
   navigation?:
     | T

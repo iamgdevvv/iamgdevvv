@@ -21,6 +21,8 @@ const nextConfig: NextConfig = {
 	experimental: {
 		useCache: true,
 		reactCompiler: false,
+		optimizeCss: true,
+		optimizeServerReact: true,
 		optimizePackageImports: [
 			'@mantine/core',
 			'@mantine/hooks',
@@ -28,6 +30,19 @@ const nextConfig: NextConfig = {
 			'@mantine/carousel',
 			'@mantine/nprogress',
 		],
+	},
+	async headers() {
+		return [
+			{
+				source: '/_next/image/:path*',
+				headers: [
+					{
+						key: 'Cache-Control',
+						value: 'public, max-age=31536000, immutable',
+					},
+				],
+			},
+		]
 	},
 }
 
