@@ -29,5 +29,5 @@ Jika ada perubahan UI/UX, sertakan tangkapan layar untuk mempermudah review.
 
 ---
 
-🙏 Terima kasih sudah berkontribusi untuk **Proyek2M**!  
-Jangan lupa bahwa kontribusi Anda akan menjadi bagian dari portofolio **Warga2M** 🚀
+🙏 Terima kasih sudah berkontribusi untuk **Iamgdev SiteV2**!  
+Jangan lupa bahwa kontribusi Anda akan menjadi bagian dari **Iamgdev SiteV2** 🚀

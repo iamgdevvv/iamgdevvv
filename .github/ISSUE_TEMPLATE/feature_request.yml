@@ -14,7 +14,7 @@ body:
       attributes:
           label: Masalah yang Ingin Diselesaikan
           description: Apa masalah yang kamu hadapi sehingga butuh fitur ini?
-          placeholder: 'Contoh: Sulit melacak kontribusi Warga2M...'
+          placeholder: 'Contoh: Sulit melacak kontribusi...'
       validations:
           required: true
     - type: textarea

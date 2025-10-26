@@ -3,12 +3,12 @@
 
 ![Preview Template](public/images/preview-portopro.jpg)
 
-# PortoPro
+# Iamgdev v2
 
-Selamat datang di repository **portopro** Proyek2M Website Template 🎉
+Selamat datang di repository **iamgdevvv** site-v2 Website Template 🎉
 
-Template website yang dibangun oleh **Warga2M** dengan semangat gotong royong.\
-Tujuan utama kami adalah membantu UMKM, komunitas, NGO, dan organisasi lainnya agar bisa tampil di dunia digital secara gratis.
+Template website yang dibangun oleh **pribadi** dengan semangat bingung mau ngapain weekend.\
+Kalian juga dapat menggunakan website template ini secara gratis.
 
 ## 📖 Lisensi
 
@@ -17,32 +17,24 @@ Artinya:
 
 - Anda bebas menggunakan, memodifikasi, dan mendistribusikan
   template ini.
-- **Wajib mencantumkan atribusi** kepada Proyek2M dan para
-  kontributor (**Warga2M**) dalam bentuk:
-    - Nama proyek **Proyek2M**
-    - Nama kontributor (Warga2M) sesuai yang tercantum di NOTICE.md
-    - Tautan menuju repository Proyek2M
+- **Wajib mencantumkan atribusi** kepada Grafis Nuresa dalam bentuk:
+    - Nama proyek dibuat dengan X **Iamgdev**
+    - Tautan menuju repository atau website Iamgdev
     - Atribusi tidak boleh dihapus dalam kondisi apapun.
 
 📌 Detail lengkap mengenai lisensi dapat dibaca di file
 [LICENSE.md](./LICENSE.md) dan [NOTICE.md](./NOTICE.md).
 
-## 🚀 Tujuan
-
-- Membantu UMKM, NGO, komunitas, dan organisasi lain hadir secara digital.
-- Menjadi wadah bagi **Warga2M** untuk membangun portofolio nyata yang bisa dilihat publik.
-- Menggerakkan budaya gotong royong dalam dunia digital.
-
 ## 🙌 Kontribusi
 
-Kami selalu terbuka bagi siapa pun yang ingin menjadi bagian dari **Warga2M**.\
+Kami selalu terbuka bagi siapa pun yang ingin menjadi bagian dari tempate website gratis ini.\
 Silakan cek panduan kontribusi di [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## ❤️ Apresiasi
 
 Jika Anda menggunakan template ini, jangan lupa memberikan atribusi sebagai bentuk apresiasi.\
-Hal ini sangat berarti bagi **Warga2M**, karena membantu membangun portofolio mereka di dunia nyata.
+Hal ini sangat berarti bagi saya pribadi, karena membantu membangun portofolio saya.
 
 ---
 
-Dibangun dengan cinta oleh [Warga2M Proyek2M](https://proyek2m.com/warga2m)
+Dibangun dengan cinta oleh [Grafis Nuresa](https://iamgdev.my.id)

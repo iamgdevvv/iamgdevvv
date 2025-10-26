@@ -8,8 +8,8 @@ import type {
 
 export const revalidateChange: CollectionAfterChangeHook = async ({ doc, req: { context } }) => {
 	if (!context.disableRevalidate) {
-		revalidateTag('collection')
-		revalidateTag('sitemap')
+		revalidateTag('collection', 'max')
+		revalidateTag('sitemap', 'max')
 		revalidatePath('/', 'layout')
 	}
 
@@ -18,8 +18,8 @@ export const revalidateChange: CollectionAfterChangeHook = async ({ doc, req: { 
 
 export const revalidateDelete: CollectionAfterDeleteHook = async ({ doc, req: { context } }) => {
 	if (!context.disableRevalidate) {
-		revalidateTag('collection')
-		revalidateTag('sitemap')
+		revalidateTag('collection', 'max')
+		revalidateTag('sitemap', 'max')
 		revalidatePath('/', 'layout')
 	}
 
@@ -31,7 +31,7 @@ export const revalidateChangeStatic: CollectionAfterChangeHook = async ({
 	req: { context },
 }) => {
 	if (!context.disableRevalidate) {
-		revalidateTag('collection')
+		revalidateTag('collection', 'max')
 		revalidatePath('/', 'layout')
 	}
 
@@ -43,7 +43,7 @@ export const revalidateDeleteStatic: CollectionAfterDeleteHook = async ({
 	req: { context },
 }) => {
 	if (!context.disableRevalidate) {
-		revalidateTag('collection')
+		revalidateTag('collection', 'max')
 		revalidatePath('/', 'layout')
 	}
 
@@ -52,7 +52,7 @@ export const revalidateDeleteStatic: CollectionAfterDeleteHook = async ({
 
 export const revalidateGlobal: GlobalAfterChangeHook = async ({ context }) => {
 	if (!context.disableRevalidate) {
-		revalidateTag('global')
+		revalidateTag('global', 'max')
 		revalidatePath('/', 'layout')
 	}
 }

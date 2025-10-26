@@ -32,11 +32,11 @@ type Args = {
 }
 
 export const dynamic = 'force-static'
-export const revalidate = 3600
+export const revalidate = 2592000
 export const dynamicParams = true
 
 export async function generateStaticParams() {
-	if (process.env.NODE_ENV === 'development') return []
+	if (process.env.NODE_ENV === 'development') return [{ slug: [slugHomepage] }]
 
 	const [pages, posts, postCategories, portofolios] = await Promise.all([
 		pageSitemap(),
@@ -285,7 +285,14 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
 
 	try {
 		// Don't generate metadata for Admin routes, API routes and public files
-		if (slug[0] === 'admin' || slug[0] === 'api' || slug.join('/').includes('.')) {
+		if (
+			slug[0] === 'admin' ||
+			slug[0] === '_next' ||
+			slug[0] === 'lib' ||
+			slug[0] === '.well-known' ||
+			slug[0] === 'api' ||
+			slug.join('/').includes('.')
+		) {
 			return {}
 		}
 

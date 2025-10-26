@@ -6,6 +6,14 @@ dan versi mengikuti [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.1.2] - 2025-24-10
+
+### Upgrade
+
+- update and remove unused packages
+- adjustment code cause upgrade next.js 16 also implement react compiler
+- remove darkTheme from site config
+
 ## [1.1.1] - 2025-09-12
 
 ### Chore

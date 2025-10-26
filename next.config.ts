@@ -2,6 +2,7 @@ import { withPayload } from '@payloadcms/next/withPayload'
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+	reactCompiler: true,
 	reactStrictMode: true,
 	typescript: {
 		ignoreBuildErrors: true,
@@ -18,18 +19,25 @@ const nextConfig: NextConfig = {
 			},
 		],
 	},
+	logging: {
+		fetches: {
+			fullUrl: true,
+		},
+	},
 	experimental: {
 		useCache: true,
-		reactCompiler: false,
+		turbopackFileSystemCacheForDev: true,
 		optimizeCss: true,
 		optimizeServerReact: true,
 		optimizePackageImports: [
 			'@mantine/core',
 			'@mantine/hooks',
 			'@mantine/form',
-			'@mantine/carousel',
 			'@mantine/nprogress',
 		],
+		serverActions: {
+			bodySizeLimit: '10mb',
+		},
 	},
 }
 

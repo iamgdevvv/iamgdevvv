@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Usulkan fitur baru untuk Proyek2M
+about: Usulkan fitur baru untuk Iamgdev SiteV2
 title: '[FEATURE] '
 labels: enhancement
 assignees: ''

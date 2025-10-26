@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 import { slugReusable } from '$modules/vars'
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
 	const { pathname } = request.nextUrl
 
 	const response = NextResponse.next()

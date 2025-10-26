@@ -1,8 +1,8 @@
-# Kode Etik Kontributor Proyek2M
+# Kode Etik Kontributor Iamgdev SiteV2
 
 ## Prinsip Utama
 
-Proyek2M adalah komunitas gotong royong. Kami percaya setiap orang berhak merasa **aman, dihargai, dan dihormati** saat berkontribusi.
+Iamgdev SiteV2 adalah website template gotong royong. Saya percaya setiap orang berhak merasa **aman, dihargai, dan dihormati** saat berkontribusi.
 
 ## Harapan Perilaku
 
@@ -21,7 +21,7 @@ Proyek2M adalah komunitas gotong royong. Kami percaya setiap orang berhak merasa
 
 ## Tanggung Jawab
 
-- Tim pengelola Proyek2M bertugas menegakkan kode etik ini.
+- Iamgdev bertugas menegakkan kode etik ini.
 - Pelanggaran serius dapat mengakibatkan kontribusi ditolak atau akun dikeluarkan dari komunitas.
 
 ## Laporan Pelanggaran
@@ -29,7 +29,7 @@ Proyek2M adalah komunitas gotong royong. Kami percaya setiap orang berhak merasa
 Jika Anda melihat atau mengalami pelanggaran:
 
 - Laporkan melalui **GitHub Issues** dengan label `code-of-conduct`.
-- Atau hubungi tim inti Proyek2M melalui email resmi: **admin@proyek2m.com**
+- Atau hubungi Grafis Nuresa melalui email resmi: **gn.mailwork@gmail.com**
 
 ## Komitmen Kami
 
@@ -41,4 +41,4 @@ Kami berkomitmen untuk:
 
 ---
 
-💙 Dengan ikut berkontribusi di Proyek2M, Anda berarti setuju untuk mematuhi Kode Etik ini.
+💙 Dengan ikut berkontribusi di Iamgdev SiteV2, Anda berarti setuju untuk mematuhi Kode Etik ini.

@@ -1,9 +1,9 @@
-# Panduan Kontribusi ke Proyek2M
+# Panduan Kontribusi ke Iamgdev SiteV2
 
-Terima kasih sudah tertarik berkontribusi di **Proyek2M**! 🙌\
-Proyek ini adalah gerakan gotong royong untuk membantu UMKM, komunitas, NGO, maupun individu agar bisa tampil di ranah digital melalui website gratis.
+Terima kasih sudah tertarik berkontribusi di **Iamgdev SiteV2**! 🙌\
+Website template ini adalah gerakan gotong royong untuk membuat website gratis untuk individu agar bisa tampil di ranah digital melalui website gratis.
 
-Semua kontribusi, baik kecil maupun besar, sangat berarti. Kontribusi Anda juga akan tercatat sebagai bagian dari **portofolio Warga2M**.
+Semua kontribusi, baik kecil maupun besar, sangat berarti. Kontribusi Anda juga akan tercatat sebagai bagian dari pembangunan **Iamgdev SiteV2**.
 
 ## 🚀 Cara Berkontribusi
 
@@ -21,11 +21,11 @@ Semua kontribusi, baik kecil maupun besar, sangat berarti. Kontribusi Anda juga 
     ```
     git push origin fitur-baru
     ```
-6. **Buat Pull Request (PR)** ke repository utama Proyek2M.
+6. **Buat Pull Request (PR)** ke repository iamgdev branch site-v2.
 
 &#x20;
 
-Tim kami akan meninjau PR Anda. Jika disetujui, kontribusi Anda akan otomatis tercatat sebagai bagian dari portofolio Warga2M.
+Tim kami akan meninjau PR Anda. Jika disetujui, kontribusi Anda akan otomatis tercatat sebagai bagian dari Iamgdev SiteV2.
 
 ---
 

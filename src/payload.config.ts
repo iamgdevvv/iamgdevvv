@@ -5,7 +5,6 @@ import { fileURLToPath } from 'url'
 
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
-import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { seoPlugin } from '@payloadcms/plugin-seo'
 import { s3Storage } from '@payloadcms/storage-s3'
@@ -61,11 +60,12 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
 	indexSortableFields: false,
+	telemetry: false,
 	admin: {
 		theme: 'light',
 		user: Users.slug,
 		importMap: {
-			baseDir: path.resolve(dirname),
+			baseDir: '@',
 		},
 		livePreview: {
 			breakpoints: [
@@ -165,7 +165,6 @@ export default buildConfig({
 		},
 	}),
 	plugins: [
-		payloadCloudPlugin(),
 		seoPlugin({
 			collections: ['pages', 'posts', 'postCategories', 'portofolios'],
 			uploadsCollection: 'asset',
