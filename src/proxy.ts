@@ -10,8 +10,19 @@ export async function proxy(request: NextRequest) {
 	const cookieStore = await cookies()
 	const isLoggedIn = cookieStore.has('payload-token')
 
-	if (pathname.startsWith(`/${slugReusable}`) && !isLoggedIn) {
-		return NextResponse.redirect(new URL('/404', request.url))
+	if (!isLoggedIn) {
+		if (pathname.startsWith(`/${slugReusable}`)) {
+			return NextResponse.redirect(new URL('/404', request.url))
+		}
+
+		if (
+			pathname.startsWith('/api') &&
+			!pathname.startsWith('/api/media') &&
+			!pathname.startsWith('/api/revalidate') &&
+			!pathname.startsWith('/api/users/login')
+		) {
+			return NextResponse.redirect(new URL('/404', request.url))
+		}
 	}
 
 	return response
@@ -26,6 +37,6 @@ export const config = {
 		 * - _next/image (image optimization files)
 		 * - favicon.ico, sitemap.xml, robots.txt (metadata files)
 		 */
-		'/((?!api|_next/static|_next/image|fonts|blocks|favicon.png|favicon.ico|sitemap.xml|robots.txt).*)',
+		'/((?!_next/static|_next/image|fonts|blocks|favicon.png|favicon.ico|sitemap.xml|robots.txt).*)',
 	],
 }
