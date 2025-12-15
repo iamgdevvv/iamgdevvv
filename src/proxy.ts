@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers'
 import { NextRequest, NextResponse } from 'next/server'
+import type { CollectionSlug } from 'payload'
 
 import { slugReusable } from '$modules/vars'
 
@@ -11,16 +12,38 @@ export async function proxy(request: NextRequest) {
 	const isLoggedIn = cookieStore.has('payload-token')
 
 	if (!isLoggedIn) {
-		if (pathname.startsWith(`/${slugReusable}`)) {
-			return NextResponse.redirect(new URL('/404', request.url))
+		if (pathname.startsWith('/api')) {
+			type CollectionSlugGuard = Exclude<
+				CollectionSlug,
+				| 'users'
+				| 'asset'
+				| 'payload-kv'
+				| 'payload-locked-documents'
+				| 'payload-preferences'
+				| 'payload-migrations'
+			>
+
+			const excludeApiPath: CollectionSlugGuard[] = [
+				'pages',
+				'posts',
+				'postCategories',
+				'portofolios',
+				'certifications',
+				'experiences',
+				'tools',
+				'reusables',
+				'forms',
+				'form-submissions',
+			]
+
+			const isExcluded = excludeApiPath.some((path) => pathname.startsWith(`/api/${path}`))
+
+			if (isExcluded) {
+				return NextResponse.redirect(new URL('/404', request.url))
+			}
 		}
 
-		if (
-			pathname.startsWith('/api') &&
-			!pathname.startsWith('/api/media') &&
-			!pathname.startsWith('/api/revalidate') &&
-			!pathname.startsWith('/api/users/login')
-		) {
+		if (pathname.startsWith(`/${slugReusable}`)) {
 			return NextResponse.redirect(new URL('/404', request.url))
 		}
 	}
