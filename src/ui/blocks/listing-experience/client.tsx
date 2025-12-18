@@ -197,6 +197,7 @@ function ListingExperienceInner({
 
 	useEffect(() => {
 		if (queryParams) {
+			// eslint-disable-next-line react-hooks/set-state-in-effect
 			setResultExperiences(null)
 
 			startTransition(async () => {

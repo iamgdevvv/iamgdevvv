@@ -118,6 +118,7 @@ function ListingToolInner({ block, initialResult, ...props }: ListingToolClientP
 
 	useEffect(() => {
 		if (queryParams) {
+			// eslint-disable-next-line react-hooks/set-state-in-effect
 			setResultTools(null)
 
 			startTransition(async () => {

@@ -193,6 +193,7 @@ function ListingPostInner({
 
 	useEffect(() => {
 		if (queryParams) {
+			// eslint-disable-next-line react-hooks/set-state-in-effect
 			setResultPosts(null)
 
 			startTransition(async () => {

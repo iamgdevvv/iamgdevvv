@@ -7,7 +7,6 @@ import SiteTemplate from '$templates/site'
 
 export const dynamic = 'force-static'
 export const revalidate = 2592000
-export const dynamicParams = true
 
 export default async function notFoundPage() {
 	const page = await pageLoader([slug404])

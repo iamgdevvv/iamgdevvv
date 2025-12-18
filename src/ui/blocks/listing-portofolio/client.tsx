@@ -201,6 +201,7 @@ function ListingPortofolioInner({
 
 	useEffect(() => {
 		if (queryParams) {
+			// eslint-disable-next-line react-hooks/set-state-in-effect
 			setResultPortofolios(null)
 
 			startTransition(async () => {
